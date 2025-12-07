@@ -1,0 +1,5 @@
+/home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/CMakeFiles/PROYECTO_FINAl_ALSE.dir
+/home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps.dir
+/home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/CMakeFiles/PROYECTO_FINAl_ALSE_autogen.dir

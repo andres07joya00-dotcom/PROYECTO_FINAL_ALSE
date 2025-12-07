@@ -11,6 +11,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
 
+include_directories(include)
+
 set(PROJECT_SOURCES
     src/main.cpp
     src/mainwindow.cpp
@@ -20,7 +22,7 @@ set(PROJECT_SOURCES
     include/mainwindow.h
     include/component.h
     include/DatabaseManager.h
-    include/mainwindow.h
+    include/InventoryManager.h
     ui/mainwindow.ui
 )
 
