@@ -15,12 +15,12 @@ bool CSVReportGenerator::generateReport(const QList<InventoryItem> &items,
 
     QTextStream out(&file);
 
-    out << "ID,Nombre,Cantidad,Precio\n";
+    out << "ID;Nombre;Cantidad;Precio\n";
 
     for (const InventoryItem &item : items) {
-        out << item.id << ","
-            << item.nombre << ","
-            << item.cantidad << ","
+        out << item.id << ";"
+            << item.nombre << ";"
+            << item.cantidad << ";"
             << item.precio << "\n";
     }
 
