@@ -316,4 +316,8 @@ CMakeFiles/PROYECTO_FINAl_ALSE.dir/PROYECTO_FINAl_ALSE_autogen/mocs_compilation.
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
+ /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/moc_InventoryManager.cpp \
+ /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/../../../../include/InventoryManager.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h
