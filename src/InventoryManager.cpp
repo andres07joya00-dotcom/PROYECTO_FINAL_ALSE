@@ -1,102 +1,90 @@
 #include "InventoryManager.h"
-#include "DatabaseManager.h"
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
 
-InventoryManager::InventoryManager(QObject *parent)
-    : QObject(parent)
+InventoryManager::InventoryManager(QSqlDatabase database, QObject *parent)
+    : QObject(parent), db(database)
 {
-    DatabaseManager::getDatabase();
-}
-
-QSqlDatabase InventoryManager::db() const
-{
-    return DatabaseManager::getDatabase();
+    if (!db.isValid()) {
+        qFatal("ERROR FATAL: Base de datos no válida. "
+               "Asegúrate de usar DatabaseManager::getDatabase().");
+    }
 }
 
 bool InventoryManager::createTable()
 {
-    QSqlQuery query(db());
+    QSqlQuery query(db);
 
     QString sql =
         "CREATE TABLE IF NOT EXISTS inventario ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
         "nombre TEXT NOT NULL,"
+        "tipo TEXT NOT NULL,"
         "cantidad INTEGER NOT NULL,"
-        "precio REAL NOT NULL"
+        "ubicacion TEXT NOT NULL,"
+        "fechaAdquisicion TEXT NOT NULL"
         ");";
 
-    if (!query.exec(sql)) {
-        qDebug() << "Error creando tabla:" << query.lastError();
-        return false;
-    }
-    return true;
+    return query.exec(sql);
 }
 
-bool InventoryManager::addItem(const QString &nombre, int cantidad, double precio)
+bool InventoryManager::addItem(const QString &nombre,
+                               const QString &tipo,
+                               int cantidad,
+                               const QString &ubicacion,
+                               const QString &fechaAdquisicion)
 {
-    QSqlQuery query(db());
-    query.prepare("INSERT INTO inventario (nombre, cantidad, precio) VALUES (?, ?, ?)");
+    QSqlQuery query(db);
+
+    query.prepare(
+        "INSERT INTO inventario "
+        "(nombre, tipo, cantidad, ubicacion, fechaAdquisicion) "
+        "VALUES (?, ?, ?, ?, ?)"
+        );
+
     query.addBindValue(nombre);
+    query.addBindValue(tipo);
     query.addBindValue(cantidad);
-    query.addBindValue(precio);
+    query.addBindValue(ubicacion);
+    query.addBindValue(fechaAdquisicion);
 
-    if (!query.exec()) {
-        qDebug() << "Error insertando item:" << query.lastError();
-        return false;
-    }
-
-    return true;
+    return query.exec();
 }
 
 bool InventoryManager::updateQuantity(int id, int newQuantity)
 {
-    QSqlQuery query(db());
+    QSqlQuery query(db);
     query.prepare("UPDATE inventario SET cantidad = ? WHERE id = ?");
     query.addBindValue(newQuantity);
     query.addBindValue(id);
-
-    if (!query.exec()) {
-        qDebug() << "Error actualizando cantidad:" << query.lastError();
-        return false;
-    }
-
-    return true;
+    return query.exec();
 }
 
 bool InventoryManager::removeItem(int id)
 {
-    QSqlQuery query(db());
+    QSqlQuery query(db);
     query.prepare("DELETE FROM inventario WHERE id = ?");
     query.addBindValue(id);
-
-    if (!query.exec()) {
-        qDebug() << "Error eliminando item:" << query.lastError();
-        return false;
-    }
-
-    return true;
+    return query.exec();
 }
 
 QList<InventoryItem> InventoryManager::getAllItems()
 {
     QList<InventoryItem> items;
-    QSqlQuery query(db());
+    QSqlQuery query(db);
 
-    if (!query.exec("SELECT id, nombre, cantidad, precio FROM inventario")) {
-        qDebug() << "Error obteniendo items:" << query.lastError();
-        return items;
-    }
+    query.exec("SELECT id, nombre, tipo, cantidad, ubicacion, fechaAdquisicion FROM inventario");
 
     while (query.next()) {
         InventoryItem it;
         it.id = query.value(0).toInt();
         it.nombre = query.value(1).toString();
-        it.cantidad = query.value(2).toInt();
-        it.precio = query.value(3).toDouble();
+        it.tipo = query.value(2).toString();
+        it.cantidad = query.value(3).toInt();
+        it.ubicacion = query.value(4).toString();
+        it.fechaAdquisicion = query.value(5).toString();
         items.append(it);
     }
-
     return items;
 }

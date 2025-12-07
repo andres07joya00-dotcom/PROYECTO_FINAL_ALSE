@@ -1,31 +1,29 @@
-#include <QApplication>
+#include <QCoreApplication>
+#include <QDebug>
+
+#include "DatabaseManager.h"
 #include "InventoryManager.h"
 #include "report.h"
-#include "DatabaseManager.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QCoreApplication a(argc, argv);
 
-    // Abrir DB
-    DatabaseManager::getDatabase();
+    QSqlDatabase db = DatabaseManager::getDatabase();
 
-    // Crear manejadores
-    InventoryManager manager;
-    CSVReportGenerator report;
+    InventoryManager manager(db);
 
-    // Crear tabla
     manager.createTable();
 
-    // Insertar algunos datos de prueba
-    manager.addItem("laptop", 50, 1.20);
-    manager.addItem("teclado", 40, 1.50);
+    manager.addItem("Arduino Uno", "Electrónica", 10, "Bodega", "2025-01-15");
+    manager.addItem("Sensor HC-SR04", "Sensor", 25, "Estante B", "2025-02-02");
 
-    // Obtener datos
-    QList<InventoryItem> items = manager.getAllItems();
+    QList<InventoryItem> lista = manager.getAllItems();
 
-    // Generar reporte
-    report.generateReport(items, "reporte_inventario.csv");
+    CSVReport report;
+    report.generate(lista, "reporte_inventario.csv");
+
+    qDebug() << "Reporte generado.";
 
     return 0;
 }

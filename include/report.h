@@ -1,14 +1,19 @@
-#ifndef CSVREPORTGENERATOR_H
-#define CSVREPORTGENERATOR_H
+#ifndef CSVREPORT_H
+#define CSVREPORT_H
 
 #include <QString>
 #include <QList>
-#include "InventoryManager.h"
 
-class CSVReportGenerator
+struct InventoryItem;
+
+class CSVReport
 {
 public:
-    bool generateReport(const QList<InventoryItem> &items, const QString &filePath);
+    CSVReport();
+
+    // Genera archivo CSV con la lista de items
+    bool generate(const QList<InventoryItem> &items,
+                  const QString &filePath);
 };
 
-#endif // CSVREPORTGENERATOR_H
+#endif // CSVREPORT_H

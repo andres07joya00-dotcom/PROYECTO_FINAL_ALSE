@@ -2,14 +2,16 @@
 #define INVENTORYMANAGER_H
 
 #include <QObject>
-#include <QSqlDatabase>
 #include <QList>
+#include <QSqlDatabase>
 
 struct InventoryItem {
     int id;
     QString nombre;
+    QString tipo;
     int cantidad;
-    double precio;
+    QString ubicacion;
+    QString fechaAdquisicion;
 };
 
 class InventoryManager : public QObject
@@ -17,17 +19,22 @@ class InventoryManager : public QObject
     Q_OBJECT
 
 public:
-    explicit InventoryManager(QObject *parent = nullptr);
+    explicit InventoryManager(QSqlDatabase database,
+                              QObject *parent = nullptr);
 
     bool createTable();
-    bool addItem(const QString &nombre, int cantidad, double precio);
+    bool addItem(const QString &nombre,
+                 const QString &tipo,
+                 int cantidad,
+                 const QString &ubicacion,
+                 const QString &fechaAdquisicion);
+
     bool updateQuantity(int id, int newQuantity);
     bool removeItem(int id);
-
     QList<InventoryItem> getAllItems();
 
 private:
-    QSqlDatabase db() const;
+    QSqlDatabase db;
 };
 
 #endif // INVENTORYMANAGER_H
