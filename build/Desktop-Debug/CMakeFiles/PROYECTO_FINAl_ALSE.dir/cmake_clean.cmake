@@ -14,6 +14,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/main.cpp.o.d"
   "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/mainwindow.cpp.o"
   "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/mainwindow.cpp.o.d"
+  "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/report.cpp.o"
+  "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/report.cpp.o.d"
   "PROYECTO_FINAl_ALSE"
   "PROYECTO_FINAl_ALSE.pdb"
   "PROYECTO_FINAl_ALSE_autogen/mocs_compilation.cpp"

@@ -23,6 +23,8 @@ set(PROJECT_SOURCES
     include/component.h
     include/DatabaseManager.h
     include/InventoryManager.h
+    include/report.h
+    src/report.cpp
     ui/mainwindow.ui
 )
 

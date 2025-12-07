@@ -1,7 +1,7 @@
 CMakeFiles/PROYECTO_FINAl_ALSE.dir/PROYECTO_FINAl_ALSE_autogen/mocs_compilation.cpp.o: \
  /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/moc_DatabaseManager.cpp \
+ /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/moc_InventoryManager.cpp \
  /usr/include/c++/13/memory /usr/include/c++/13/bits/memoryfwd.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -116,7 +116,7 @@ CMakeFiles/PROYECTO_FINAl_ALSE.dir/PROYECTO_FINAl_ALSE_autogen/mocs_compilation.
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/../../../../include/DatabaseManager.h \
+ /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/../../../../include/InventoryManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
@@ -290,34 +290,5 @@ CMakeFiles/PROYECTO_FINAl_ALSE.dir/PROYECTO_FINAl_ALSE_autogen/mocs_compilation.
  /usr/include/x86_64-linux-gnu/qt6/QtSql/qtsqlglobal.h \
  /usr/include/x86_64-linux-gnu/qt6/QtSql/qtsql-config.h \
  /usr/include/x86_64-linux-gnu/qt6/QtSql/qtsqlexports.h \
- /usr/include/x86_64-linux-gnu/qt6/QtSql/QSqlError \
- /usr/include/x86_64-linux-gnu/qt6/QtSql/qsqlerror.h \
- /usr/include/x86_64-linux-gnu/qt6/QtSql/QSqlQuery \
- /usr/include/x86_64-linux-gnu/qt6/QtSql/qsqlquery.h \
- /usr/include/x86_64-linux-gnu/qt6/QtSql/qsqldatabase.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringconverter_base.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qsharedpointer_impl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata_impl.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qobject.h \
- /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/moc_InventoryManager.cpp \
- /home/joyita/PROYECTO_FINAL_ALSE/build/Desktop-Debug/PROYECTO_FINAl_ALSE_autogen/6YEA5652QU/../../../../include/InventoryManager.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QList \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h

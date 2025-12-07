@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/joyita/PROYECTO_FINAL_ALSE/src/component.cpp" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/component.cpp.o" "gcc" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/component.cpp.o.d"
   "/home/joyita/PROYECTO_FINAL_ALSE/src/main.cpp" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/main.cpp.o" "gcc" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/main.cpp.o.d"
   "/home/joyita/PROYECTO_FINAL_ALSE/src/mainwindow.cpp" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/mainwindow.cpp.o" "gcc" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/mainwindow.cpp.o.d"
+  "/home/joyita/PROYECTO_FINAL_ALSE/src/report.cpp" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/report.cpp.o" "gcc" "CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/report.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

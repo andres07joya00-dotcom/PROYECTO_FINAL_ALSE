@@ -1,55 +1,33 @@
-#include <QCoreApplication>
-#include <QSqlDatabase>
-#include <QDebug>
+#include <QApplication>
 #include "InventoryManager.h"
+#include "report.h"
+#include "DatabaseManager.h"
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QApplication a(argc, argv);
 
-    // 1. Abrir base de datos SQLite
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("inventario.db");
+    // Abrir DB
+    DatabaseManager::getDatabase();
 
-    if (!db.open()) {
-        qDebug() << "No se pudo abrir la base de datos:" << db.lastError();
-        return -1;
-    }
-
-    qDebug() << "Base de datos abierta correctamente.";
-
-    // 2. Crear gestor de inventario
+    // Crear manejadores
     InventoryManager manager;
+    CSVReportGenerator report;
 
-    // 3. Crear tabla
+    // Crear tabla
     manager.createTable();
 
-    // 4. Insertar datos de prueba
-    manager.addItem("Laptop", 5, 3500.0);
-    manager.addItem("Mouse", 20, 25.5);
-    manager.addItem("Teclado", 15, 40.0);
+    // Insertar algunos datos de prueba
+    manager.addItem("laptop", 50, 1.20);
+    manager.addItem("teclado", 40, 1.50);
 
-    // 5. Leer todos los items
-    auto items = manager.getAllItems();
-    qDebug() << "--- LISTA DE ITEMS ---";
-    for (const auto &item : items) {
-        qDebug() << "ID:" << item.id
-                 << "Nombre:" << item.nombre
-                 << "Cantidad:" << item.cantidad
-                 << "Precio:" << item.precio;
-    }
+    // Obtener datos
+    QList<InventoryItem> items = manager.getAllItems();
 
-    // 6. Actualizar cantidad
-    if (items.size() > 0) {
-        manager.updateQuantity(items[0].id, 99);
-    }
+    // Generar reporte
+    report.generateReport(items, "reporte_inventario.csv");
 
-    // 7. Eliminar un item
-    if (items.size() > 1) {
-        manager.removeItem(items[1].id);
-    }
-
-    qDebug() << "Pruebas completadas.";
-
-    return a.exec();
+    return 0;
 }
+
+

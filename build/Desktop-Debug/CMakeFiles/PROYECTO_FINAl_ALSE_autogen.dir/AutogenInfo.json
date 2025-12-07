@@ -214,6 +214,12 @@
 			"MU",
 			"6YEA5652QU/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"/home/joyita/PROYECTO_FINAL_ALSE/include/report.h",
+			"MU",
+			"6YEA5652QU/moc_report.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -288,7 +294,8 @@
 		],
 		[ "/home/joyita/PROYECTO_FINAL_ALSE/src/component.cpp", "MU", null ],
 		[ "/home/joyita/PROYECTO_FINAL_ALSE/src/main.cpp", "MU", null ],
-		[ "/home/joyita/PROYECTO_FINAL_ALSE/src/mainwindow.cpp", "MU", null ]
+		[ "/home/joyita/PROYECTO_FINAL_ALSE/src/mainwindow.cpp", "MU", null ],
+		[ "/home/joyita/PROYECTO_FINAL_ALSE/src/report.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

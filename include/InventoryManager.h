@@ -3,15 +3,13 @@
 
 #include <QObject>
 #include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
 #include <QList>
 
-    struct InventoryItem {
-        int id;
-QString nombre;
-int cantidad;
-double precio;
+struct InventoryItem {
+    int id;
+    QString nombre;
+    int cantidad;
+    double precio;
 };
 
 class InventoryManager : public QObject

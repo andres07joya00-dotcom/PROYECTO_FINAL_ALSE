@@ -283,6 +283,7 @@
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -359,15 +360,12 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtmetamacros.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qtypeinfo.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qutf8stringview.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qvarlengtharray.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
   /usr/include/x86_64-linux-gnu/qt6/QtSql/QSqlDatabase \
   /usr/include/x86_64-linux-gnu/qt6/QtSql/QSqlError \
-  /usr/include/x86_64-linux-gnu/qt6/QtSql/QSqlQuery \
   /usr/include/x86_64-linux-gnu/qt6/QtSql/qsqldatabase.h \
   /usr/include/x86_64-linux-gnu/qt6/QtSql/qsqlerror.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtSql/qsqlquery.h \
   /usr/include/x86_64-linux-gnu/qt6/QtSql/qtsql-config.h \
   /usr/include/x86_64-linux-gnu/qt6/QtSql/qtsqlexports.h \
   /usr/include/x86_64-linux-gnu/qt6/QtSql/qtsqlglobal.h \
