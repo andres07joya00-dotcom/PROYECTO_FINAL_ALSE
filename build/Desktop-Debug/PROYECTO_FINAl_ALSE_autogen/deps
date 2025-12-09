@@ -7,6 +7,7 @@ PROYECTO_FINAl_ALSE_autogen/timestamp: \
 	/home/joyita/PROYECTO_FINAL_ALSE/include/DatabaseManager.h \
 	/home/joyita/PROYECTO_FINAL_ALSE/include/InventoryManager.h \
 	/home/joyita/PROYECTO_FINAL_ALSE/include/component.h \
+	/home/joyita/PROYECTO_FINAL_ALSE/include/delegate.h \
 	/home/joyita/PROYECTO_FINAL_ALSE/include/mainwindow.h \
 	/home/joyita/PROYECTO_FINAL_ALSE/include/report.h \
 	/home/joyita/PROYECTO_FINAL_ALSE/src/DatabaseManager.cpp \

@@ -32,6 +32,14 @@ public:
     bool updateQuantity(int id, int newQuantity);
     bool removeItem(int id);
     QList<InventoryItem> getAllItems();
+    bool updateItem(int id,
+                    const QString &nombre,
+                    const QString &tipo,
+                    int cantidad,
+                    const QString &ubicacion,
+                    const QString &fechaAdquisicion);
+
+    InventoryItem getItemById(int id);
 
 private:
     QSqlDatabase db;

@@ -29,7 +29,7 @@ set(PROJECT_SOURCES
     include/DatabaseManager.h
     include/InventoryManager.h
     include/report.h
-
+    include/delegate.h
     ui/mainwindow.ui
 )
 

@@ -14,7 +14,7 @@
 #include <QDebug>
 
 #include "report.h"
-
+#include "delegate.h"
 // Helpers
 static QString dateToString(const QDate &d) {
     return d.toString("yyyy-MM-dd");
@@ -54,6 +54,13 @@ AddDialog::AddDialog(QWidget *parent) : QWidget(parent)
 
     connect(btnOk, &QPushButton::clicked, this, &AddDialog::onOk);
     connect(btnCancel, &QPushButton::clicked, this, &AddDialog::onCancel);
+
+    nameEdit->setObjectName("nameEdit");
+    typeEdit->setObjectName("typeEdit");
+    qtySpin->setObjectName("qtySpin");
+    locEdit->setObjectName("locEdit");
+    dateEdit->setObjectName("dateEdit");
+
 }
 
 QString AddDialog::getName() const { return nameEdit->text().trimmed(); }
@@ -83,6 +90,13 @@ MainWindow::MainWindow(QSqlDatabase db, QWidget *parent)
     QPushButton *btnExport = new QPushButton("Exportar CSV");
     QPushButton *btnLowStock = new QPushButton("Revisar stock bajo");
 
+    QPushButton *btnLoadDefaults = new QPushButton("Cargar base por defecto");
+    QPushButton *btnRestore = new QPushButton("Restaurar base original");
+    QPushButton *btnEdit = new QPushButton("Editar");
+
+    topLayout->addWidget(btnLoadDefaults);
+    topLayout->addWidget(btnRestore);
+    topLayout->addWidget(btnEdit);
     topLayout->addWidget(new QLabel("Buscar:"));
     topLayout->addWidget(searchEdit);
     topLayout->addWidget(btnAdd);
@@ -103,7 +117,7 @@ MainWindow::MainWindow(QSqlDatabase db, QWidget *parent)
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
+    tableView->setItemDelegate(new LowStockDelegate(lowStockThreshold, this));
     mainLayout->addWidget(tableView);
 
     connect(btnAdd, &QPushButton::clicked, this, &MainWindow::onAdd);
@@ -112,6 +126,11 @@ MainWindow::MainWindow(QSqlDatabase db, QWidget *parent)
     connect(btnLowStock, &QPushButton::clicked, this, &MainWindow::onLowStock);
     connect(searchEdit, &QLineEdit::textChanged, this, &MainWindow::onSearch);
 
+    connect(btnLoadDefaults, &QPushButton::clicked, this, &MainWindow::onLoadDefaults);
+    connect(btnRestore, &QPushButton::clicked, this, &MainWindow::onRestoreDefaults);
+
+    connect(btnEdit, &QPushButton::clicked, this, &MainWindow::onEdit);
+
     if (!manager.createTable()) {
         QMessageBox::critical(this, "Error", "No se pudo crear la tabla de inventario.");
     }
@@ -119,6 +138,60 @@ MainWindow::MainWindow(QSqlDatabase db, QWidget *parent)
     refreshModel();
     checkLowStockOnStart();
 }
+
+void MainWindow::onEdit()
+{
+    QModelIndexList sel = tableView->selectionModel()->selectedRows();
+    if (sel.isEmpty()) {
+        QMessageBox::information(this, "Editar", "Selecciona una fila primero.");
+        return;
+    }
+
+    QModelIndex idx = sel.first();
+    QModelIndex src = proxy->mapToSource(idx);
+    int id = model->data(model->index(src.row(), 0)).toInt();
+
+    InventoryItem it = manager.getItemById(id);
+
+    AddDialog *dlg = new AddDialog();
+    dlg->setWindowModality(Qt::ApplicationModal);
+
+    // Precargar datos
+    dlg->findChild<QLineEdit*>("nameEdit")->setText(it.nombre);
+    dlg->findChild<QLineEdit*>("typeEdit")->setText(it.tipo);
+    dlg->findChild<QSpinBox*>("qtySpin")->setValue(it.cantidad);
+    dlg->findChild<QLineEdit*>("locEdit")->setText(it.ubicacion);
+    dlg->findChild<QDateEdit*>("dateEdit")->setDate(QDate::fromString(it.fechaAdquisicion, "yyyy-MM-dd"));
+
+    dlg->show();
+
+    connect(dlg, &AddDialog::accepted, this, [this, dlg, id]() {
+
+        if (dlg->getName().isEmpty() || dlg->getType().isEmpty()) {
+            QMessageBox::warning(this, "Validación", "Nombre y tipo son obligatorios.");
+            return;
+        }
+
+        if (!manager.updateItem(
+                id,
+                dlg->getName(),
+                dlg->getType(),
+                dlg->getQuantity(),
+                dlg->getLocation(),
+                dlg->getDate().toString("yyyy-MM-dd")))
+        {
+            QMessageBox::critical(this, "Error", "No se pudo editar el componente.");
+        } else {
+            refreshModel();
+        }
+
+        dlg->close();
+        dlg->deleteLater();
+    });
+
+    connect(dlg, &AddDialog::cancelled, dlg, &AddDialog::close);
+}
+
 
 void MainWindow::onAdd()
 {
@@ -174,6 +247,81 @@ void MainWindow::onDelete()
     }
 }
 
+void MainWindow::onLoadDefaults()
+{
+    QList<QList<QString>> defaults = {
+        {"Resistor 10kΩ", "Electrónico", "100", "Cajón A1", "2024-01-10"},
+        {"Capacitor 100nF", "Electrónico", "80", "Cajón A1", "2024-01-12"},
+        {"Diodo 1N4148", "Electrónico", "150", "Cajón A2", "2024-02-01"},
+        {"LED Rojo 5mm", "Electrónico", "200", "Cajón A2", "2024-03-05"},
+        {"Transistor 2N3904", "Electrónico", "120", "Cajón A3", "2024-03-10"},
+        {"Potenciómetro 10k", "Electrónico", "15", "Cajón B1", "2024-02-20"},
+        {"Motor DC 6V", "Electrónico", "10", "Estante B2", "2024-03-03"},
+        {"Sensor HC-SR04", "Sensor", "12", "Estante C1", "2024-02-28"},
+        {"Arduino Uno", "Microcontrolador", "4", "Estante C2", "2023-11-22"},
+        {"Protoboard", "Herramienta", "10", "Estante C3", "2023-12-10"},
+        {"Raspberry Pi Pico", "Microcontrolador", "6", "Estante C2", "2024-01-30"},
+        {"Relé 5V", "Electrónico", "30", "Cajón A3", "2024-01-11"},
+        {"Cable Dupont (m/m)", "Accesorio", "300", "Cajón A1", "2024-01-05"},
+        {"Cable Dupont (h/h)", "Accesorio", "300", "Cajón A1", "2024-01-05"},
+        {"Batería 9V", "Electrónico", "25", "Estante D1", "2024-02-10"},
+        {"Multímetro Digital", "Instrumento", "3", "Mesa Taller", "2023-12-10"},
+        {"Osciloscopio", "Instrumento", "1", "Mesa Taller", "2023-09-10"},
+        {"Fuente DC 30V", "Instrumento", "2", "Mesa Taller", "2023-09-10"},
+        {"Sensor PIR SR505", "Sensor", "20", "Estante C1", "2024-01-05"},
+        {"Sensor DHT11", "Sensor", "15", "Estante C1", "2024-01-08"},
+        {"Sensor DHT22", "Sensor", "10", "Estante C1", "2024-01-08"},
+        {"ESP32-CAM", "Microcontrolador", "7", "Estante C2", "2024-02-01"},
+        {"ESP8266", "Microcontrolador", "10", "Estante C2", "2024-02-02"},
+        {"Cámara Web USB", "Computación", "5", "Estante D2", "2023-11-11"},
+        {"Router TP-Link", "Red", "3", "Estante D2", "2023-12-01"},
+        {"Switch Lógico", "Electrónico", "100", "Cajón A4", "2024-01-22"},
+        {"Cables USB", "Accesorio", "30", "Cajón B3", "2023-12-28"},
+        {"Rollo Cinta Aislante", "Herramienta", "20", "Cajón B3", "2023-12-30"},
+        {"Soldador 60W", "Herramienta", "2", "Mesa Taller", "2023-12-15"},
+        {"Estaño", "Consumible", "10", "Cajón B1", "2023-12-15"},
+        {"Alcohol Isopropílico", "Limpieza", "4", "Estante E1", "2024-01-02"},
+        {"Guantes Nitrilo", "Laboratorio", "200", "Armario F1", "2024-01-01"},
+        {"Termómetro Digital", "Laboratorio", "3", "Estante E2", "2023-12-10"},
+        {"Placa de Calentamiento", "Laboratorio", "1", "Estante E3", "2023-11-20"},
+        {"Cronómetro", "Laboratorio", "2", "Cajón B4", "2023-12-09"},
+        {"Lupa de Banco", "Herramienta", "2", "Mesa Taller", "2023-10-15"},
+        {"Extensión Eléctrica", "Hogar", "8", "Estante D1", "2023-10-10"},
+        {"Bombillo LED 12W", "Hogar", "20", "Estante D1", "2023-09-10"},
+        {"Tomacorriente", "Hogar", "40", "Estante D1", "2023-09-10"},
+        {"Interruptor de Pared", "Hogar", "40", "Estante D1", "2023-09-10"},
+        {"Control Remoto IR", "Electrónico", "15", "Cajón A2", "2024-02-01"},
+        {"Buzzer 5V", "Electrónico", "40", "Cajón A3", "2024-02-03"},
+        {"Servo SG90", "Electrónico", "15", "Cajón A3", "2024-02-10"},
+        {"Switch de Palanca", "Electrónico", "50", "Cajón A4", "2024-02-11"},
+        {"Jack DC 5.5mm", "Electrónico", "60", "Cajón A4", "2024-02-11"},
+        {"Pinzas de Cocodrilo", "Accesorio", "50", "Cajón B3", "2024-01-01"},
+        {"Termistor NTC 10k", "Sensor", "80", "Cajón A2", "2024-01-20"}
+    };
+
+    for (const auto &item : defaults) {
+        manager.addItem(item[0], item[1], item[2].toInt(), item[3], item[4]);
+    }
+
+    refreshModel();
+    QMessageBox::information(this, "Carga completa", "Se cargaron 50 componentes.");
+}
+
+void MainWindow::onRestoreDefaults()
+{
+    if (QMessageBox::question(this, "Restaurar",
+                              "¿Seguro que deseas borrar todo y restaurar la base por defecto?")
+        != QMessageBox::Yes)
+        return;
+
+    QSqlQuery q;
+    q.exec("DELETE FROM inventario");  // borrar todo
+
+    onLoadDefaults();  // volver a cargar
+
+    QMessageBox::information(this, "Restaurada", "La base fue restaurada.");
+}
+
 void MainWindow::onExport()
 {
     QString filename = QFileDialog::getSaveFileName(
@@ -191,17 +339,24 @@ void MainWindow::onExport()
 
 void MainWindow::onLowStock()
 {
-    QStringList low;
-    for (const auto &it : manager.getAllItems()) {
-        if (it.cantidad < lowStockThreshold)
-            low << QString("%1 (ID %2) - %3").arg(it.nombre).arg(it.id).arg(it.cantidad);
+    for (int r = 0; r < proxy->rowCount(); r++) {
+        QModelIndex idxQty = proxy->index(r, 3);
+        int qty = idxQty.data().toInt();
+
+        if (qty < lowStockThreshold) {
+            for (int c = 0; c < proxy->columnCount(); c++) {
+                tableView->model()->setData(
+                    proxy->index(r, c),
+                    QColor(255, 200, 200),
+                    Qt::BackgroundRole
+                    );
+            }
+        }
     }
 
-    if (low.isEmpty())
-        QMessageBox::information(this, "Stock", "No hay stock bajo.");
-    else
-        QMessageBox::warning(this, "Stock bajo", low.join("\n"));
+    QMessageBox::information(this, "Stock bajo", "Los elementos con poco stock fueron resaltados.");
 }
+
 
 void MainWindow::onSearch(const QString &text)
 {

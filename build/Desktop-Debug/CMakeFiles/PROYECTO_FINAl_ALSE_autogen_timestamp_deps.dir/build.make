@@ -68,8 +68,8 @@ include CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps.dir/progress.make
 
 CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Sql.so.6.4.2
 CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 
 PROYECTO_FINAl_ALSE_autogen_timestamp_deps: CMakeFiles/PROYECTO_FINAl_ALSE_autogen_timestamp_deps

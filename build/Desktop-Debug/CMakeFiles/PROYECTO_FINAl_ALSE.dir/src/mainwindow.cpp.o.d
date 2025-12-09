@@ -439,4 +439,7 @@ CMakeFiles/PROYECTO_FINAl_ALSE.dir/src/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtSql/qsqlquery.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
- /home/joyita/PROYECTO_FINAL_ALSE/include/report.h
+ /home/joyita/PROYECTO_FINAL_ALSE/include/report.h \
+ /home/joyita/PROYECTO_FINAL_ALSE/include/delegate.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QStyledItemDelegate \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleditemdelegate.h

@@ -88,3 +88,51 @@ QList<InventoryItem> InventoryManager::getAllItems()
     }
     return items;
 }
+
+bool InventoryManager::updateItem(int id,
+                                  const QString &nombre,
+                                  const QString &tipo,
+                                  int cantidad,
+                                  const QString &ubicacion,
+                                  const QString &fechaAdquisicion)
+{
+    QSqlQuery query(db);
+
+    query.prepare(
+        "UPDATE inventario SET "
+        "nombre = ?, tipo = ?, cantidad = ?, ubicacion = ?, fechaAdquisicion = ? "
+        "WHERE id = ?"
+        );
+
+    query.addBindValue(nombre);
+    query.addBindValue(tipo);
+    query.addBindValue(cantidad);
+    query.addBindValue(ubicacion);
+    query.addBindValue(fechaAdquisicion);
+    query.addBindValue(id);
+
+    return query.exec();
+}
+
+InventoryItem InventoryManager::getItemById(int id)
+{
+    InventoryItem it;
+
+    QSqlQuery query(db);
+    query.prepare("SELECT id, nombre, tipo, cantidad, ubicacion, fechaAdquisicion "
+                  "FROM inventario WHERE id = ?");
+    query.addBindValue(id);
+
+    if (!query.exec() || !query.next()) {
+        return it;  // vacío si no encuentra
+    }
+
+    it.id = query.value(0).toInt();
+    it.nombre = query.value(1).toString();
+    it.tipo = query.value(2).toString();
+    it.cantidad = query.value(3).toInt();
+    it.ubicacion = query.value(4).toString();
+    it.fechaAdquisicion = query.value(5).toString();
+
+    return it;
+}

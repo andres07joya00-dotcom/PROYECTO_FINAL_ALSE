@@ -51,6 +51,7 @@ public:
     explicit MainWindow(QSqlDatabase db, QWidget *parent = nullptr);
 
 private slots:
+    void onEdit();
     void onAdd();
     void onDelete();
     void onExport();
@@ -60,6 +61,8 @@ private slots:
 private:
     void refreshModel();
     void checkLowStockOnStart();
+    void onLoadDefaults();
+    void onRestoreDefaults();
 
 private:
     InventoryManager manager;
