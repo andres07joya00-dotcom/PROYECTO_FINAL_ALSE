@@ -1,0 +1,63 @@
+<map id="MainWindow::MainWindow" name="MainWindow::MainWindow">
+<area shape="rect" id="Node000001" title="Constructor de la ventana principal." alt="" coords="5,628,203,653"/>
+<area shape="rect" id="Node000002" href="$classInventoryManager.html#ac1308250ed0c8c11edc6b6b84bc8d5a2" title="Crea la tabla principal del inventario si no existe." alt="" coords="273,187,463,227"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,628,110,559,131,454,150,396,175,338,208,284,249,237,259,229,262,234,253,241,212,288,180,341,155,398,137,456,115,560,109,628"/>
+<area shape="rect" id="Node000003" href="$classMainWindow.html#a31750b622110b0edfcd341556c44ef3c" title="Abre el diálogo para agregar un nuevo componente al inventario." alt="" coords="291,351,445,376"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,626,343,385,347,389,120,629"/>
+<area shape="rect" id="Node000013" href="$classMainWindow.html#ae709637342f1faac100901a15e338308" title="Actualiza la vista recargando los datos desde la base de datos SQL." alt="" coords="813,628,1011,653"/>
+<area shape="poly" id="edge36_Node000001_Node000013" title=" " alt="" coords="203,638,799,638,799,643,203,643"/>
+<area shape="rect" id="Node000014" href="$classMainWindow.html#a3f29a7235acf922406190b6477167a80" title="Elimina el registro seleccionado en la tabla." alt="" coords="282,704,454,729"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="147,651,251,682,307,698,305,703,250,687,146,656"/>
+<area shape="rect" id="Node000016" href="$classMainWindow.html#a9480c0a26284df09cf4d595b0d1952fe" title="Inicia el proceso de edición del componente seleccionado." alt="" coords="291,252,445,277"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="106,627,122,576,150,500,193,415,219,374,249,336,285,305,324,281,327,286,288,309,253,340,223,377,197,418,155,502,127,578,111,628"/>
+<area shape="rect" id="Node000019" href="$classMainWindow.html#aae43dfb8457343a5cd68ae9e4f0947b3" title="Genera y exporta un reporte del inventario en formato CSV." alt="" coords="283,753,453,779"/>
+<area shape="poly" id="edge26_Node000001_Node000019" title=" " alt="" coords="122,651,176,694,213,718,252,738,276,747,274,752,250,743,210,723,173,699,118,656"/>
+<area shape="rect" id="Node000022" href="$classMainWindow.html#aec037789de5a4356126afe86a8831276" title="Carga un conjunto de datos de prueba (Seed Data)." alt="" coords="541,603,755,628"/>
+<area shape="poly" id="edge29_Node000001_Node000022" title=" " alt="" coords="132,625,186,604,250,587,336,579,423,580,503,588,572,598,571,603,503,593,422,586,336,584,251,593,188,609,134,630"/>
+<area shape="rect" id="Node000023" href="$classMainWindow.html#aa203add17c8e3a5835b8dee710ca3d63" title="Analiza el stock actual y resalta visualmente los ítems críticos." alt="" coords="273,803,463,828"/>
+<area shape="poly" id="edge32_Node000001_Node000023" title=" " alt="" coords="116,652,168,718,207,756,252,788,269,796,267,801,249,792,204,760,164,721,112,655"/>
+<area shape="rect" id="Node000024" href="$classMainWindow.html#a061b3d00f9f4ec5381813290c884135b" title="Restaura la base de datos a su estado original (vacía y luego recargada)." alt="" coords="251,603,485,628"/>
+<area shape="poly" id="edge33_Node000001_Node000024" title=" " alt="" coords="203,629,237,625,237,631,203,634"/>
+<area shape="rect" id="Node000025" href="$classMainWindow.html#a294de4fcf7148338a254b10dbd5a132c" title="Filtra la tabla en tiempo real según el texto ingresado." alt="" coords="281,852,455,877"/>
+<area shape="poly" id="edge35_Node000001_Node000025" title=" " alt="" coords="113,652,131,690,160,741,201,794,225,818,252,838,269,847,267,852,249,843,222,822,197,798,156,744,126,692,108,655"/>
+<area shape="rect" id="Node000004" href="$classAddDialog.html#a98fd2634696182392e30d750fec4fa35" title=" " alt="" coords="570,104,726,129"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="399,348,443,324,465,307,483,287,495,267,501,248,503,211,508,175,516,157,532,139,555,124,558,128,535,143,520,160,513,176,509,212,506,249,500,270,487,290,468,311,446,328,402,353"/>
+<area shape="rect" id="Node000005" href="$classInventoryManager.html#acb286cf95731b5a8f8b55bea861b6885" title="Inserta un nuevo elemento en la tabla inventario." alt="" coords="811,579,1013,604"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="395,374,457,404,534,434,598,450,650,457,701,465,764,486,799,504,833,526,887,567,884,572,830,530,797,509,762,491,700,470,649,462,597,455,533,439,455,408,393,378"/>
+<area shape="rect" id="Node000006" href="$classAddDialog.html#a5120327b094f97585324f46bf09a1224" title=" " alt="" coords="569,153,727,179"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="396,348,440,323,463,306,483,287,499,261,504,236,512,212,532,188,554,175,557,180,535,192,517,214,510,238,504,263,487,290,467,310,443,328,399,353"/>
+<area shape="rect" id="Node000007" href="$mainwindow_8cpp.html#a62c004692be56c8a628ec733b07c4c40" title="Convierte un objeto QDate a una cadena con formato estándar de base de datos." alt="" coords="597,501,699,527"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="385,374,447,425,490,454,534,480,584,498,582,503,532,484,487,459,444,429,382,378"/>
+<area shape="rect" id="Node000008" href="$classAddDialog.html#ab6038c606013470cf474c272357d2830" title="Obtiene la fecha de adquisición seleccionada." alt="" coords="573,203,723,228"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="391,348,435,321,484,287,506,261,516,249,532,237,559,226,561,230,535,242,520,252,510,264,487,291,438,326,394,353"/>
+<area shape="rect" id="Node000009" href="$classAddDialog.html#acddb648cd31785710468adfd345dc9bf" title="Obtiene la ubicación física del componente." alt="" coords="561,252,735,277"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="392,348,454,317,532,286,561,278,562,283,534,291,457,322,394,353"/>
+<area shape="rect" id="Node000010" href="$classAddDialog.html#ab1cf40e875c67ed9f4afbb9c15002fd9" title="Obtiene el nombre ingresado por el usuario." alt="" coords="569,301,727,327"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="440,348,561,327,562,332,441,353"/>
+<area shape="rect" id="Node000011" href="$classAddDialog.html#ace328ac19c27ec775541e29b893faeb6" title="Obtiene la cantidad seleccionada." alt="" coords="561,351,735,376"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="445,361,547,361,547,366,445,366"/>
+<area shape="rect" id="Node000012" href="$classAddDialog.html#a681938827598fc3404fea3175825ec04" title="Obtiene el tipo de componente ingresado." alt="" coords="574,400,722,425"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="441,373,562,395,561,400,440,379"/>
+<area shape="poly" id="edge12_Node000003_Node000013" title=" " alt="" coords="380,375,402,408,438,452,482,497,535,536,566,551,594,560,646,567,699,571,729,577,764,588,788,600,812,613,838,622,837,627,810,618,785,605,762,592,728,582,698,577,645,573,593,566,564,556,532,540,479,501,434,455,398,411,375,378"/>
+<area shape="poly" id="edge14_Node000014_Node000013" title=" " alt="" coords="454,712,599,703,681,695,762,682,814,670,862,655,863,660,815,675,763,687,682,700,599,709,454,718"/>
+<area shape="rect" id="Node000015" href="$classInventoryManager.html#a2466a14f063a0a33ee43fb44396821fa" title="Elimina un elemento del inventario." alt="" coords="533,755,763,780"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="439,727,564,750,563,755,438,732"/>
+<area shape="poly" id="edge17_Node000016_Node000004" title=" " alt="" coords="445,256,465,248,484,237,495,226,501,214,507,189,513,164,520,151,532,139,556,125,558,130,535,143,524,154,518,165,512,191,506,216,499,229,487,241,468,253,446,261"/>
+<area shape="poly" id="edge18_Node000016_Node000006" title=" " alt="" coords="445,252,484,237,498,226,507,213,516,200,532,188,554,178,556,183,535,192,520,204,511,216,502,229,487,242,447,257"/>
+<area shape="poly" id="edge19_Node000016_Node000008" title=" " alt="" coords="440,249,561,228,562,233,441,255"/>
+<area shape="poly" id="edge21_Node000016_Node000009" title=" " alt="" coords="445,262,547,262,547,267,445,267"/>
+<area shape="poly" id="edge22_Node000016_Node000010" title=" " alt="" coords="441,275,562,296,561,301,440,280"/>
+<area shape="poly" id="edge23_Node000016_Node000011" title=" " alt="" coords="395,275,457,305,534,335,567,345,566,350,532,341,455,310,393,280"/>
+<area shape="poly" id="edge24_Node000016_Node000012" title=" " alt="" coords="394,275,439,302,487,336,510,363,520,374,535,385,562,397,560,401,532,390,516,378,506,366,484,340,436,306,392,280"/>
+<area shape="rect" id="Node000017" href="$classInventoryManager.html#a9d7c6193009d6b10a2063d8ae5bfabaa" title="Obtiene un único elemento del inventario según su id." alt="" coords="533,5,763,31"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="445,258,466,250,483,237,501,214,508,190,509,166,507,141,504,116,505,90,513,65,531,40,536,36,539,40,535,44,518,67,510,91,509,115,512,140,514,166,514,191,506,217,487,241,468,255,447,263"/>
+<area shape="rect" id="Node000018" href="$classInventoryManager.html#ac9a100ac0e1fbbfd270a750b420bb88f" title="Actualiza todos los campos de un elemento del inventario." alt="" coords="536,55,760,80"/>
+<area shape="poly" id="edge25_Node000016_Node000018" title=" " alt="" coords="445,257,466,249,484,237,498,220,505,203,507,165,509,127,516,108,531,89,536,85,540,89,535,93,521,110,514,128,512,165,510,204,502,223,487,241,468,254,447,262"/>
+<area shape="rect" id="Node000020" href="$classCSVReport.html#a5051c763dbb1b15197528448727af40e" title="Genera un archivo CSV con la lista de items proporcionada." alt="" coords="569,804,727,829"/>
+<area shape="poly" id="edge27_Node000019_Node000020" title=" " alt="" coords="439,776,564,799,563,804,438,781"/>
+<area shape="rect" id="Node000021" href="$classInventoryManager.html#aea0e4299cec1881036f2176c23323b74" title="Obtiene todos los registros almacenados en la tabla inventario." alt="" coords="555,854,741,894"/>
+<area shape="poly" id="edge28_Node000019_Node000021" title=" " alt="" coords="454,774,487,788,503,801,512,814,520,827,535,840,546,846,544,851,532,844,516,831,507,817,499,804,484,792,452,779"/>
+<area shape="poly" id="edge30_Node000022_Node000005" title=" " alt="" coords="755,603,797,599,797,604,756,608"/>
+<area shape="poly" id="edge31_Node000022_Node000013" title=" " alt="" coords="756,623,799,627,799,632,755,628"/>
+<area shape="poly" id="edge34_Node000024_Node000022" title=" " alt="" coords="485,613,527,613,527,618,485,618"/>
+</map>

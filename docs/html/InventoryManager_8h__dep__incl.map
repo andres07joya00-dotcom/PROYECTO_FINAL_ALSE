@@ -1,0 +1,16 @@
+<map id="include/InventoryManager.h" name="include/InventoryManager.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="255,5,458,31"/>
+<area shape="rect" id="Node000002" href="$delegate_8h.html" title=" " alt="" coords="5,79,148,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,37,123,81,121,76,298,31"/>
+<area shape="rect" id="Node000004" href="$mainwindow_8h.html" title=" " alt="" coords="172,79,339,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="331,41,273,81,270,76,328,36"/>
+<area shape="rect" id="Node000006" href="$InventoryManager_8cpp.html" title=" " alt="" coords="363,79,553,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="386,36,443,76,440,81,383,41"/>
+<area shape="rect" id="Node000007" href="$report_8cpp.html" title=" " alt="" coords="577,79,688,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="415,31,589,76,587,81,414,37"/>
+<area shape="rect" id="Node000003" href="$mainwindow_8cpp.html" title="Implementación de la lógica de interfaz gráfica para la gestión de inventario." alt="" coords="11,152,166,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,117,89,151,84,152,78,118"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="217,112,117,154,115,149,215,107"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="Punto de entrada principal de la aplicación de inventario." alt="" coords="203,152,308,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="258,118,258,152,253,152,253,118"/>
+</map>

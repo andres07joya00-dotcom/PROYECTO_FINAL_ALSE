@@ -1,0 +1,23 @@
+<map id="MainWindow::onAdd" name="MainWindow::onAdd">
+<area shape="rect" id="Node000001" title="Abre el diálogo para agregar un nuevo componente al inventario." alt="" coords="5,228,160,253"/>
+<area shape="rect" id="Node000002" href="$classAddDialog.html#a98fd2634696182392e30d750fec4fa35" title=" " alt="" coords="231,5,387,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,227,100,189,125,139,160,85,182,61,206,40,217,33,220,38,210,44,186,65,164,88,129,141,105,191,91,228"/>
+<area shape="rect" id="Node000003" href="$classInventoryManager.html#acb286cf95731b5a8f8b55bea861b6885" title="Inserta un nuevo elemento en la tabla inventario." alt="" coords="208,55,411,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="89,226,132,160,166,122,207,89,218,83,220,88,209,94,170,126,136,164,93,229"/>
+<area shape="rect" id="Node000004" href="$classAddDialog.html#a5120327b094f97585324f46bf09a1224" title=" " alt="" coords="230,104,389,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="94,226,141,183,172,159,207,138,223,131,225,136,209,143,175,163,144,187,98,230"/>
+<area shape="rect" id="Node000005" href="$mainwindow_8cpp.html#a62c004692be56c8a628ec733b07c4c40" title="Convierte un objeto QDate a una cadena con formato estándar de base de datos." alt="" coords="258,153,361,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="111,225,207,187,244,177,245,182,209,193,113,230"/>
+<area shape="rect" id="Node000006" href="$classAddDialog.html#ab6038c606013470cf474c272357d2830" title="Obtiene la fecha de adquisición seleccionada." alt="" coords="235,203,384,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="160,229,221,223,221,228,161,235"/>
+<area shape="rect" id="Node000007" href="$classAddDialog.html#acddb648cd31785710468adfd345dc9bf" title="Obtiene la ubicación física del componente." alt="" coords="223,252,396,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="161,246,209,251,209,257,160,252"/>
+<area shape="rect" id="Node000008" href="$classAddDialog.html#ab1cf40e875c67ed9f4afbb9c15002fd9" title="Obtiene el nombre ingresado por el usuario." alt="" coords="231,301,388,327"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="115,251,209,286,240,295,239,300,207,291,113,256"/>
+<area shape="rect" id="Node000009" href="$classAddDialog.html#ace328ac19c27ec775541e29b893faeb6" title="Obtiene la cantidad seleccionada." alt="" coords="222,351,397,376"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="98,251,145,293,176,316,209,336,230,344,228,349,207,340,173,320,141,297,95,255"/>
+<area shape="rect" id="Node000010" href="$classAddDialog.html#a681938827598fc3404fea3175825ec04" title="Obtiene el tipo de componente ingresado." alt="" coords="235,400,383,425"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="93,252,137,316,170,354,209,385,224,393,221,397,207,390,166,358,132,320,89,255"/>
+<area shape="rect" id="Node000011" href="$classMainWindow.html#ae709637342f1faac100901a15e338308" title="Actualiza la vista recargando los datos desde la base de datos SQL." alt="" coords="210,449,409,475"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="91,253,105,289,130,339,165,391,186,414,210,435,221,441,218,446,206,439,182,418,160,394,125,341,100,291,86,255"/>
+</map>

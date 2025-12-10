@@ -1,0 +1,17 @@
+<map id="MainWindow::refreshModel" name="MainWindow::refreshModel">
+<area shape="rect" id="Node000001" title="Actualiza la vista recargando los datos desde la base de datos SQL." alt="" coords="796,65,995,90"/>
+<area shape="rect" id="Node000002" href="$classMainWindow.html#af6ed98f8230fd8f941c6cb7732160ed5" title="Constructor de la ventana principal." alt="" coords="5,90,203,116"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="837,64,728,39,581,16,500,10,416,9,332,15,251,29,214,42,179,59,124,92,122,88,177,54,212,37,250,24,332,10,416,3,500,4,582,11,729,33,838,59"/>
+<area shape="rect" id="Node000003" href="$classMainWindow.html#a31750b622110b0edfcd341556c44ef3c" title="Abre el diálogo para agregar un nuevo componente al inventario." alt="" coords="291,40,445,65"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="782,75,446,59,446,53,783,70"/>
+<area shape="rect" id="Node000004" href="$classMainWindow.html#a3f29a7235acf922406190b6477167a80" title="Elimina el registro seleccionado en la tabla." alt="" coords="555,90,727,116"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="783,91,727,97,727,92,782,86"/>
+<area shape="rect" id="Node000005" href="$classMainWindow.html#aec037789de5a4356126afe86a8831276" title="Carga un conjunto de datos de prueba (Seed Data)." alt="" coords="533,141,748,166"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="847,97,749,129,697,143,695,138,747,124,845,92"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="288,70,171,93,170,88,287,65"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="540,106,203,106,203,100,540,100"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="519,145,202,115,203,110,520,140"/>
+<area shape="rect" id="Node000006" href="$classMainWindow.html#a061b3d00f9f4ec5381813290c884135b" title="Restaura la base de datos a su estado original (vacía y luego recargada)." alt="" coords="251,192,485,217"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="559,171,438,194,437,189,558,166"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="299,190,250,175,183,146,128,118,130,113,185,141,252,170,300,185"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="MainWindow::onRestoreDefaults" name="MainWindow::onRestoreDefaults">
+<area shape="rect" id="Node000001" title="Restaura la base de datos a su estado original (vacía y luego recargada)." alt="" coords="251,5,485,31"/>
+<area shape="rect" id="Node000002" href="$classMainWindow.html#af6ed98f8230fd8f941c6cb7732160ed5" title="Constructor de la ventana principal." alt="" coords="5,5,203,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,21,203,21,203,15,237,15"/>
+</map>

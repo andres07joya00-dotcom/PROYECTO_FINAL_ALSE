@@ -1,0 +1,11 @@
+<map id="AddDialog::AddDialog" name="AddDialog::AddDialog">
+<area shape="rect" id="Node000001" title="Constructor de la clase AddDialog." alt="" coords="5,31,169,56"/>
+<area shape="rect" id="Node000002" href="$classAddDialog.html#a3f35887c64e8de108ef4e45850d560a9" title="Slot llamado al presionar &quot;Cancelar&quot;." alt="" coords="217,5,375,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,31,203,27,204,32,170,36"/>
+<area shape="rect" id="Node000004" href="$classAddDialog.html#a78803d57593ddd157af57178901297ff" title="Slot llamado al presionar &quot;Agregar/Aceptar&quot;." alt="" coords="231,55,361,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,50,217,56,217,61,169,55"/>
+<area shape="rect" id="Node000003" href="$classAddDialog.html#a5120327b094f97585324f46bf09a1224" title=" " alt="" coords="423,5,581,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="375,15,409,15,409,21,375,21"/>
+<area shape="rect" id="Node000005" href="$classAddDialog.html#a98fd2634696182392e30d750fec4fa35" title=" " alt="" coords="424,55,580,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="362,65,410,65,410,70,362,70"/>
+</map>

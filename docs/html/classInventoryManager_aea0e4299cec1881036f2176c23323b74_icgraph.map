@@ -1,0 +1,7 @@
+<map id="InventoryManager::getAllItems" name="InventoryManager::getAllItems">
+<area shape="rect" id="Node000001" title="Obtiene todos los registros almacenados en la tabla inventario." alt="" coords="469,5,656,45"/>
+<area shape="rect" id="Node000002" href="$classMainWindow.html#aae43dfb8457343a5cd68ae9e4f0947b3" title="Genera y exporta un reporte del inventario en formato CSV." alt="" coords="251,13,421,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="455,28,422,28,422,23,455,23"/>
+<area shape="rect" id="Node000003" href="$classMainWindow.html#af6ed98f8230fd8f941c6cb7732160ed5" title="Constructor de la ventana principal." alt="" coords="5,13,203,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,28,203,28,203,23,237,23"/>
+</map>

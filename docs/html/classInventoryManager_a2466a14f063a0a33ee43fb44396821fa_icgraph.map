@@ -1,0 +1,7 @@
+<map id="InventoryManager::removeItem" name="InventoryManager::removeItem">
+<area shape="rect" id="Node000001" title="Elimina un elemento del inventario." alt="" coords="471,5,700,31"/>
+<area shape="rect" id="Node000002" href="$classMainWindow.html#a3f29a7235acf922406190b6477167a80" title="Elimina el registro seleccionado en la tabla." alt="" coords="251,5,423,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="457,21,423,21,423,15,457,15"/>
+<area shape="rect" id="Node000003" href="$classMainWindow.html#af6ed98f8230fd8f941c6cb7732160ed5" title="Constructor de la ventana principal." alt="" coords="5,5,203,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,21,203,21,203,15,237,15"/>
+</map>

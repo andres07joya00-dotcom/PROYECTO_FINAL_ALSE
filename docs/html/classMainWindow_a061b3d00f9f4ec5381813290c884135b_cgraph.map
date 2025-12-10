@@ -1,0 +1,9 @@
+<map id="MainWindow::onRestoreDefaults" name="MainWindow::onRestoreDefaults">
+<area shape="rect" id="Node000001" title="Restaura la base de datos a su estado original (vacía y luego recargada)." alt="" coords="5,31,240,56"/>
+<area shape="rect" id="Node000002" href="$classMainWindow.html#aec037789de5a4356126afe86a8831276" title="Carga un conjunto de datos de prueba (Seed Data)." alt="" coords="288,31,503,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,41,274,41,274,46,240,46"/>
+<area shape="rect" id="Node000003" href="$classInventoryManager.html#acb286cf95731b5a8f8b55bea861b6885" title="Inserta un nuevo elemento en la tabla inventario." alt="" coords="551,5,753,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="503,30,537,27,537,32,503,35"/>
+<area shape="rect" id="Node000004" href="$classMainWindow.html#ae709637342f1faac100901a15e338308" title="Actualiza la vista recargando los datos desde la base de datos SQL." alt="" coords="553,55,751,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="503,51,539,54,539,59,503,56"/>
+</map>

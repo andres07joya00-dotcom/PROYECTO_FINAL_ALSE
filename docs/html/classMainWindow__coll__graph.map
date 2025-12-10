@@ -1,0 +1,9 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="Node000001" title="Controlador principal de la aplicación de gestión de inventario." alt="" coords="5,388,193,733"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="43,190,113,255"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,269,91,388,86,388,78,269"/>
+<area shape="rect" id="Node000003" href="$classInventoryManager.html" title=" " alt="" coords="138,120,295,325"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,326,167,373,162,371,179,325"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="183,5,250,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="219,85,219,120,214,120,214,85"/>
+</map>

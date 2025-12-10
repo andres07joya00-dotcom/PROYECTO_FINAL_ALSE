@@ -1,0 +1,7 @@
+<map id="MainWindow::onDelete" name="MainWindow::onDelete">
+<area shape="rect" id="Node000001" title="Elimina el registro seleccionado en la tabla." alt="" coords="5,31,177,56"/>
+<area shape="rect" id="Node000002" href="$classMainWindow.html#ae709637342f1faac100901a15e338308" title="Actualiza la vista recargando los datos desde la base de datos SQL." alt="" coords="241,5,439,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,32,227,27,228,32,178,37"/>
+<area shape="rect" id="Node000003" href="$classInventoryManager.html#a2466a14f063a0a33ee43fb44396821fa" title="Elimina un elemento del inventario." alt="" coords="225,55,455,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,49,212,52,211,58,177,54"/>
+</map>
