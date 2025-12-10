@@ -1,0 +1,140 @@
+\doxysection{Database\+Manager Class Reference}
+\hypertarget{classDatabaseManager}{}\label{classDatabaseManager}\index{DatabaseManager@{DatabaseManager}}
+
+
+Clase encargada de gestionar la conexión con la base de datos.  
+
+
+
+
+{\ttfamily \#include $<$Database\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Database\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classDatabaseManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static QSql\+Database \mbox{\hyperlink{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}{get\+Database}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la base de datos principal del sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static QSql\+Database \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}} = QSql\+Database()
+\begin{DoxyCompactList}\small\item\em Instancia estática de la base de datos administrada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de gestionar la conexión con la base de datos. 
+
+Esta clase implementa un patrón similar a Singleton para proporcionar una única instancia de conexión a la base de datos SQLite utilizada por la aplicación. El método estático \doxylink{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}{get\+Database} retorna una referencia a dicha conexión evitando crear múltiples instancias.
+
+Se utiliza QSql\+Database para manejar la apertura y configuración de la base de datos según lo requiera Qt. 
+
+Definition at line \mbox{\hyperlink{DatabaseManager_8h_source_l00018}{18}} of file \mbox{\hyperlink{DatabaseManager_8h_source}{Database\+Manager.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}\label{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8} 
+\index{DatabaseManager@{DatabaseManager}!getDatabase@{getDatabase}}
+\index{getDatabase@{getDatabase}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{getDatabase()}{getDatabase()}}
+{\footnotesize\ttfamily QSql\+Database Database\+Manager\+::get\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Obtiene la base de datos principal del sistema. 
+
+Obtiene y gestiona la conexión a la base de datos SQLite.
+
+Si la conexión aún no se ha inicializado, se configura y se abre. En llamadas posteriores, devuelve la misma instancia ya configurada.
+
+\begin{DoxyReturn}{Returns}
+Instancia global de QSql\+Database utilizada por el sistema.
+\end{DoxyReturn}
+Este método garantiza que la base de datos\+:
+\begin{DoxyItemize}
+\item Sea creada solo una vez (patrón singleton estático).
+\item Se configure con el driver "{}\+QSQLITE"{}.
+\item Utilice como archivo local "{}inventario.\+db"{}.
+\item Abra la conexión si aún no lo está.
+\end{DoxyItemize}
+
+Si ocurre un error al abrir la base de datos, el mensaje es mostrado mediante q\+Debug().
+
+\begin{DoxyReturn}{Returns}
+Objeto QSql\+Database listo para ser utilizado. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{DatabaseManager_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{DatabaseManager_8cpp_source}{Database\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Si\ la\ instancia\ aún\ no\ es\ válida,\ configurar\ el\ driver}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.isValid())\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}\ =\ QSqlDatabase::addDatabase(\textcolor{stringliteral}{"{}QSQLITE"{}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.setDatabaseName(\textcolor{stringliteral}{"{}inventario.db"{}});}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Abrir\ la\ base\ de\ datos\ si\ aún\ no\ está\ abierta}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.isOpen())\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.open())\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}ERROR\ al\ abrir\ la\ base\ de\ datos:"{}}\ <<\ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.lastError();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Base\ de\ datos\ abierta\ correctamente."{}};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}};}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{DatabaseManager_8h_source_l00038}{db}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDatabaseManager_a48728975c70722593bb73736d7e76efb}\label{classDatabaseManager_a48728975c70722593bb73736d7e76efb} 
+\index{DatabaseManager@{DatabaseManager}!db@{db}}
+\index{db@{db}!DatabaseManager@{DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{db}{db}}
+{\footnotesize\ttfamily QSql\+Database Database\+Manager\+::db = QSql\+Database()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Instancia estática de la base de datos administrada. 
+
+Inicialización del objeto estático de base de datos.
+
+Esta variable almacena la conexión única utilizada por toda la aplicación. Es configurada en \doxylink{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}{get\+Database}.
+
+Se inicializa como una instancia vacía. La configuración real (tipo de driver y nombre de archivo) se realiza dentro de \doxylink{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}{get\+Database()}. 
+
+Definition at line \mbox{\hyperlink{DatabaseManager_8h_source_l00038}{38}} of file \mbox{\hyperlink{DatabaseManager_8h_source}{Database\+Manager.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{DatabaseManager_8h}{Database\+Manager.\+h}}\item 
+src/\mbox{\hyperlink{DatabaseManager_8cpp}{Database\+Manager.\+cpp}}\end{DoxyCompactItemize}

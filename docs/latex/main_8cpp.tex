@@ -1,0 +1,96 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Punto de entrada principal de la aplicación de inventario.  
+
+
+{\ttfamily \#include $<$QApplication$>$}\newline
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \#include "{}Database\+Manager.\+h"{}}\newline
+{\ttfamily \#include "{}mainwindow.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Función principal de la aplicación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Punto de entrada principal de la aplicación de inventario. 
+
+Este archivo inicializa el entorno Qt, establece la conexión con la base de datos mediante \doxylink{classDatabaseManager}{Database\+Manager} y crea la ventana principal de la aplicación. 
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Función principal de la aplicación. 
+
+Inicializa QApplication, intenta abrir la base de datos y crea la ventana principal si la conexión es exitosa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Número de argumentos de línea de comandos. \\
+\hline
+{\em argv} & Arreglo con los argumentos de línea de comandos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Código de salida de la aplicación. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ QApplication\ app(argc,\ argv);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Obtener\ la\ conexión\ a\ la\ base\ de\ datos\ desde\ DatabaseManager}}
+\DoxyCodeLine{00029\ \ \ \ \ QSqlDatabase\ db\ =\ \mbox{\hyperlink{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}{DatabaseManager::getDatabase}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Verificar\ si\ la\ base\ de\ datos\ se\ abrió\ correctamente}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (!db.isValid()\ ||\ !db.isOpen())\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ QMessageBox::critical(\textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{}Error"{}},\ \textcolor{stringliteral}{"{}No\ se\ pudo\ abrir\ la\ base\ de\ datos."{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Crear\ y\ mostrar\ la\ ventana\ principal}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classMainWindow}{MainWindow}}\ w(db);}
+\DoxyCodeLine{00039\ \ \ \ \ w.show();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ app.exec();}
+\DoxyCodeLine{00042\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{DatabaseManager_8cpp_source_l00027}{Database\+Manager\+::get\+Database()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}

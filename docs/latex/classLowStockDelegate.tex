@@ -1,0 +1,151 @@
+\doxysection{Low\+Stock\+Delegate Class Reference}
+\hypertarget{classLowStockDelegate}{}\label{classLowStockDelegate}\index{LowStockDelegate@{LowStockDelegate}}
+
+
+Delegate que resalta en rojo los elementos con bajo stock.  
+
+
+
+
+{\ttfamily \#include $<$delegate.\+h$>$}
+
+
+
+Inheritance diagram for Low\+Stock\+Delegate\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classLowStockDelegate__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Low\+Stock\+Delegate\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classLowStockDelegate__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLowStockDelegate_ab0d43bd4f0634f96003877b2d33bf4d3}{Low\+Stock\+Delegate}} (int threshold, QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor del delegado de bajo stock. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLowStockDelegate_a4df8a7cc855f40905dc0ada7491c2b00}{paint}} (QPainter \texorpdfstring{$\ast$}{*}painter, const QStyle\+Option\+View\+Item \&option, const QModel\+Index \&index) const override
+\begin{DoxyCompactList}\small\item\em Sobrescribe el método paint para aplicar resaltado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classLowStockDelegate_a4018fcb7f358dabf89b42e5a92f73de1}{limit}}
+\begin{DoxyCompactList}\small\item\em Umbral mínimo de cantidad para marcar el texto en rojo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Delegate que resalta en rojo los elementos con bajo stock. 
+
+Esta clase hereda de QStyled\+Item\+Delegate y se encarga de modificar la apariencia de las celdas en un QTable\+View o QList\+View cuando la cantidad de un componente es menor a un umbral definido.
+
+Útil para visualizar rápidamente inventario crítico en interfaces Qt. 
+
+Definition at line \mbox{\hyperlink{delegate_8h_source_l00017}{17}} of file \mbox{\hyperlink{delegate_8h_source}{delegate.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLowStockDelegate_ab0d43bd4f0634f96003877b2d33bf4d3}\label{classLowStockDelegate_ab0d43bd4f0634f96003877b2d33bf4d3} 
+\index{LowStockDelegate@{LowStockDelegate}!LowStockDelegate@{LowStockDelegate}}
+\index{LowStockDelegate@{LowStockDelegate}!LowStockDelegate@{LowStockDelegate}}
+\doxysubsubsection{\texorpdfstring{LowStockDelegate()}{LowStockDelegate()}}
+{\footnotesize\ttfamily Low\+Stock\+Delegate\+::\+Low\+Stock\+Delegate (\begin{DoxyParamCaption}\item[{int}]{threshold,  }\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor del delegado de bajo stock. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & Umbral mínimo de cantidad antes de marcar el texto en rojo. \\
+\hline
+{\em parent} & Objeto padre opcional según la jerarquía Qt. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{delegate_8h_source_l00026}{26}} of file \mbox{\hyperlink{delegate_8h_source}{delegate.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ :\ QStyledItemDelegate(parent),\ \mbox{\hyperlink{classLowStockDelegate_a4018fcb7f358dabf89b42e5a92f73de1}{limit}}(threshold)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLowStockDelegate_a4df8a7cc855f40905dc0ada7491c2b00}\label{classLowStockDelegate_a4df8a7cc855f40905dc0ada7491c2b00} 
+\index{LowStockDelegate@{LowStockDelegate}!paint@{paint}}
+\index{paint@{paint}!LowStockDelegate@{LowStockDelegate}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void Low\+Stock\+Delegate\+::paint (\begin{DoxyParamCaption}\item[{QPainter \texorpdfstring{$\ast$}{*}}]{painter,  }\item[{const QStyle\+Option\+View\+Item \&}]{option,  }\item[{const QModel\+Index \&}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+Sobrescribe el método paint para aplicar resaltado. 
+
+Cambia el color del texto a rojo cuando la columna correspondiente a la cantidad (columna 3 del modelo) tiene un valor menor al umbral definido en \doxylink{classLowStockDelegate_a4018fcb7f358dabf89b42e5a92f73de1}{limit}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & Objeto empleado para realizar el dibujo. \\
+\hline
+{\em option} & Opciones de estilo de la celda. \\
+\hline
+{\em index} & Índice del elemento dentro del modelo. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{delegate_8h_source_l00040}{40}} of file \mbox{\hyperlink{delegate_8h_source}{delegate.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ QStyleOptionViewItem\ opt(option);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Columna\ 3\ →\ cantidad\ del\ componente}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index.column()\ ==\ 3\ \&\&\ index.data().toInt()\ <\ \mbox{\hyperlink{classLowStockDelegate_a4018fcb7f358dabf89b42e5a92f73de1}{limit}})\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ opt.palette.setColor(QPalette::Text,\ Qt::red);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ QStyledItemDelegate::paint(painter,\ opt,\ index);}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{delegate_8h_source_l00055}{limit}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classLowStockDelegate_a4018fcb7f358dabf89b42e5a92f73de1}\label{classLowStockDelegate_a4018fcb7f358dabf89b42e5a92f73de1} 
+\index{LowStockDelegate@{LowStockDelegate}!limit@{limit}}
+\index{limit@{limit}!LowStockDelegate@{LowStockDelegate}}
+\doxysubsubsection{\texorpdfstring{limit}{limit}}
+{\footnotesize\ttfamily int Low\+Stock\+Delegate\+::limit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Umbral mínimo de cantidad para marcar el texto en rojo. 
+
+
+
+Definition at line \mbox{\hyperlink{delegate_8h_source_l00055}{55}} of file \mbox{\hyperlink{delegate_8h_source}{delegate.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{delegate_8h}{delegate.\+h}}\end{DoxyCompactItemize}

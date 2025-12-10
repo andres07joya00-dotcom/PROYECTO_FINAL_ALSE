@@ -1,0 +1,157 @@
+\doxysection{CSVReport Class Reference}
+\hypertarget{classCSVReport}{}\label{classCSVReport}\index{CSVReport@{CSVReport}}
+
+
+Clase encargada de generar reportes CSV del inventario.  
+
+
+
+
+{\ttfamily \#include $<$report.\+h$>$}
+
+
+
+Collaboration diagram for CSVReport\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{classCSVReport__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCSVReport_aaea22e3a4e33642f5562ecee500a9c92}{CSVReport}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCSVReport_a5051c763dbb1b15197528448727af40e}{generate}} (const QList$<$ \mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} $>$ \&items, const QString \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Genera un archivo CSV con la lista de items proporcionada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de generar reportes CSV del inventario. 
+
+Esta clase ofrece un método principal para crear un archivo CSV que contiene todos los campos relevantes de cada \doxylink{structInventoryItem}{Inventory\+Item}. 
+
+Definition at line \mbox{\hyperlink{report_8h_source_l00032}{32}} of file \mbox{\hyperlink{report_8h_source}{report.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCSVReport_aaea22e3a4e33642f5562ecee500a9c92}\label{classCSVReport_aaea22e3a4e33642f5562ecee500a9c92} 
+\index{CSVReport@{CSVReport}!CSVReport@{CSVReport}}
+\index{CSVReport@{CSVReport}!CSVReport@{CSVReport}}
+\doxysubsubsection{\texorpdfstring{CSVReport()}{CSVReport()}}
+{\footnotesize\ttfamily CSVReport\+::\+CSVReport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor por defecto. 
+
+Constructor por defecto de la clase \doxylink{classCSVReport}{CSVReport}.
+
+No realiza ninguna operación específica, pero se define para mantener consistencia en la estructura del proyecto. 
+
+Definition at line \mbox{\hyperlink{report_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{report_8cpp_source}{report.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCSVReport_a5051c763dbb1b15197528448727af40e}\label{classCSVReport_a5051c763dbb1b15197528448727af40e} 
+\index{CSVReport@{CSVReport}!generate@{generate}}
+\index{generate@{generate}!CSVReport@{CSVReport}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily bool CSVReport\+::generate (\begin{DoxyParamCaption}\item[{const QList$<$ \mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} $>$ \&}]{items,  }\item[{const QString \&}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Genera un archivo CSV con la lista de items proporcionada. 
+
+Genera un archivo CSV con la información del inventario.
+
+El archivo generado contiene encabezados y cada fila representa un elemento del inventario con su información completa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & Lista de elementos del inventario a exportar. \\
+\hline
+{\em file\+Path} & Ruta completa donde se guardará el archivo CSV.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el archivo se generó correctamente, false en caso contrario.
+\end{DoxyReturn}
+Abre o crea un archivo en la ruta indicada y escribe una fila con los encabezados seguida por una línea por cada elemento del inventario. Los campos de texto son encapsulados entre comillas dobles.
+
+Ejemplo de formato generado\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ID;Nombre;Tipo;Cantidad;Ubicacion;FechaAdquisicion}
+\DoxyCodeLine{1;\textcolor{stringliteral}{"{}Resistencia"{}};\textcolor{stringliteral}{"{}Electrónico"{}};50;\textcolor{stringliteral}{"{}Caja\ A"{}};\textcolor{stringliteral}{"{}2024-\/03-\/01"{}}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em items} & Lista de elementos del inventario. \\
+\hline
+{\em file\+Path} & Ruta completa del archivo CSV a generar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el archivo fue generado correctamente, {\ttfamily false} si no fue posible abrirlo para escritura. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{report_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{report_8cpp_source}{report.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ QFile\ file(filePath);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.open(QIODevice::WriteOnly\ |\ QIODevice::Text))\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}No\ se\ puede\ abrir\ archivo\ CSV:"{}}\ <<\ filePath;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ QTextStream\ out(\&file);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Encabezados\ del\ CSV}}
+\DoxyCodeLine{00046\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}ID;Nombre;Tipo;Cantidad;Ubicacion;FechaAdquisicion\(\backslash\)n"{}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Datos\ de\ cada\ item}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ \&it\ :\ items)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ out\ <<\ it.id\ <<\ \textcolor{stringliteral}{"{};"{}}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ <<\ it.nombre\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{};"{}}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ <<\ it.tipo\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{};"{}}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ it.cantidad\ <<\ \textcolor{stringliteral}{"{};"{}}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ <<\ it.ubicacion\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{};"{}}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ <<\ it.fechaAdquisicion\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ file.close();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00060\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCSVReport_a5051c763dbb1b15197528448727af40e_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{report_8h}{report.\+h}}\item 
+src/\mbox{\hyperlink{report_8cpp}{report.\+cpp}}\end{DoxyCompactItemize}

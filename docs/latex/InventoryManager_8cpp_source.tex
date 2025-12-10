@@ -1,0 +1,144 @@
+\doxysection{Inventory\+Manager.\+cpp}
+\hypertarget{InventoryManager_8cpp_source}{}\label{InventoryManager_8cpp_source}\index{src/InventoryManager.cpp@{src/InventoryManager.cpp}}
+\mbox{\hyperlink{InventoryManager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{InventoryManager_8h}{InventoryManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QSqlQuery>}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QSqlError>}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00017}\mbox{\hyperlink{classInventoryManager_a75dce25e0f16beb8fdf2b2c12e067bbc}{00017}}\ \mbox{\hyperlink{classInventoryManager_a75dce25e0f16beb8fdf2b2c12e067bbc}{InventoryManager::InventoryManager}}(QSqlDatabase\ database,\ QObject\ *parent)}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00018}00018\ \ \ \ \ :\ QObject(parent),\ db(database)}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}}.isValid())\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ qFatal(\textcolor{stringliteral}{"{}ERROR\ FATAL:\ Base\ de\ datos\ no\ válida.\ "{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Asegúrate\ de\ usar\ DatabaseManager::getDatabase()."{}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00023}00023\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00039}\mbox{\hyperlink{classInventoryManager_ac1308250ed0c8c11edc6b6b84bc8d5a2}{00039}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_ac1308250ed0c8c11edc6b6b84bc8d5a2}{InventoryManager::createTable}}()}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00041}00041\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00043}00043\ \ \ \ \ QString\ sql\ =}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}CREATE\ TABLE\ IF\ NOT\ EXISTS\ inventario\ ("{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nombre\ TEXT\ NOT\ NULL,"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tipo\ TEXT\ NOT\ NULL,"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}cantidad\ INTEGER\ NOT\ NULL,"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ubicacion\ TEXT\ NOT\ NULL,"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}fechaAdquisicion\ TEXT\ NOT\ NULL"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{});"{}};}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec(sql);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00067}\mbox{\hyperlink{classInventoryManager_acb286cf95731b5a8f8b55bea861b6885}{00067}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_acb286cf95731b5a8f8b55bea861b6885}{InventoryManager::addItem}}(\textcolor{keyword}{const}\ QString\ \&nombre,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&tipo,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cantidad,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&ubicacion,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&fechaAdquisicion)}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00073}00073\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00075}00075\ \ \ \ \ query.prepare(}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}INSERT\ INTO\ inventario\ "{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(nombre,\ tipo,\ cantidad,\ ubicacion,\ fechaAdquisicion)\ "{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}VALUES\ (?,\ ?,\ ?,\ ?,\ ?)"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00079}00079\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00081}00081\ \ \ \ \ query.addBindValue(nombre);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00082}00082\ \ \ \ \ query.addBindValue(tipo);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00083}00083\ \ \ \ \ query.addBindValue(cantidad);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00084}00084\ \ \ \ \ query.addBindValue(ubicacion);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00085}00085\ \ \ \ \ query.addBindValue(fechaAdquisicion);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00098}\mbox{\hyperlink{classInventoryManager_a80c514d80a67db181261ba49a3f95556}{00098}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_a80c514d80a67db181261ba49a3f95556}{InventoryManager::updateQuantity}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ newQuantity)}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00100}00100\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00101}00101\ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ inventario\ SET\ cantidad\ =\ ?\ WHERE\ id\ =\ ?"{}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00102}00102\ \ \ \ \ query.addBindValue(newQuantity);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00103}00103\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00114}\mbox{\hyperlink{classInventoryManager_a2466a14f063a0a33ee43fb44396821fa}{00114}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_a2466a14f063a0a33ee43fb44396821fa}{InventoryManager::removeItem}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00115}00115\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00116}00116\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00117}00117\ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}DELETE\ FROM\ inventario\ WHERE\ id\ =\ ?"{}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00118}00118\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00127}\mbox{\hyperlink{classInventoryManager_aea0e4299cec1881036f2176c23323b74}{00127}}\ QList<InventoryItem>\ \mbox{\hyperlink{classInventoryManager_aea0e4299cec1881036f2176c23323b74}{InventoryManager::getAllItems}}()}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00128}00128\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00129}00129\ \ \ \ \ QList<InventoryItem>\ items;}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00130}00130\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00132}00132\ \ \ \ \ query.exec(\textcolor{stringliteral}{"{}SELECT\ id,\ nombre,\ tipo,\ cantidad,\ ubicacion,\ fechaAdquisicion\ FROM\ inventario"{}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{while}\ (query.next())\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ it;}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a030669fac72a2963767b7467a9f44cfd}{id}}\ =\ query.value(0).toInt();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a5916800dfd9336df31f19d3d058b23ba}{nombre}}\ =\ query.value(1).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa0e612da64e4d8f3b289a068ceb42396}{tipo}}\ =\ query.value(2).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa5c6621f69f9a7bbee8e75525313f1af}{cantidad}}\ =\ query.value(3).toInt();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4f0cd1d04922dbc7f0d14221a6e6e527}{ubicacion}}\ =\ query.value(4).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4a7beeb3691327c8211a60a6ff38970c}{fechaAdquisicion}}\ =\ query.value(5).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ items.append(it);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00143}00143\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{return}\ items;}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00145}00145\ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00159}\mbox{\hyperlink{classInventoryManager_ac9a100ac0e1fbbfd270a750b420bb88f}{00159}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_ac9a100ac0e1fbbfd270a750b420bb88f}{InventoryManager::updateItem}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&nombre,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&tipo,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cantidad,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&ubicacion,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&fechaAdquisicion)}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00165}00165\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00166}00166\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00168}00168\ \ \ \ \ query.prepare(}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}UPDATE\ inventario\ SET\ "{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nombre\ =\ ?,\ tipo\ =\ ?,\ cantidad\ =\ ?,\ ubicacion\ =\ ?,\ fechaAdquisicion\ =\ ?\ "{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WHERE\ id\ =\ ?"{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00172}00172\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00174}00174\ \ \ \ \ query.addBindValue(nombre);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00175}00175\ \ \ \ \ query.addBindValue(tipo);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00176}00176\ \ \ \ \ query.addBindValue(cantidad);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00177}00177\ \ \ \ \ query.addBindValue(ubicacion);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00178}00178\ \ \ \ \ query.addBindValue(fechaAdquisicion);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00179}00179\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00182}00182\ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00192}\mbox{\hyperlink{classInventoryManager_a9d7c6193009d6b10a2063d8ae5bfabaa}{00192}}\ \mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ \mbox{\hyperlink{classInventoryManager_a9d7c6193009d6b10a2063d8ae5bfabaa}{InventoryManager::getItemById}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00193}00193\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00194}00194\ \ \ \ \ \mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ it;}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00196}00196\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00197}00197\ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ id,\ nombre,\ tipo,\ cantidad,\ ubicacion,\ fechaAdquisicion\ "{}}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}FROM\ inventario\ WHERE\ id\ =\ ?"{}});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00199}00199\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (!query.exec()\ ||\ !query.next())\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;\ \ \textcolor{comment}{//\ vacío\ si\ no\ se\ encuentra}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00203}00203\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00205}00205\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a030669fac72a2963767b7467a9f44cfd}{id}}\ =\ query.value(0).toInt();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00206}00206\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a5916800dfd9336df31f19d3d058b23ba}{nombre}}\ =\ query.value(1).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00207}00207\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa0e612da64e4d8f3b289a068ceb42396}{tipo}}\ =\ query.value(2).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00208}00208\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa5c6621f69f9a7bbee8e75525313f1af}{cantidad}}\ =\ query.value(3).toInt();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00209}00209\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4f0cd1d04922dbc7f0d14221a6e6e527}{ubicacion}}\ =\ query.value(4).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00210}00210\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4a7beeb3691327c8211a60a6ff38970c}{fechaAdquisicion}}\ =\ query.value(5).toString();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00212}00212\ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8cpp_source_l00213}00213\ \}}
+
+\end{DoxyCode}

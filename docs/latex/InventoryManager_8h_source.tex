@@ -1,0 +1,98 @@
+\doxysection{Inventory\+Manager.\+h}
+\hypertarget{InventoryManager_8h_source}{}\label{InventoryManager_8h_source}\index{include/InventoryManager.h@{include/InventoryManager.h}}
+\mbox{\hyperlink{InventoryManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ INVENTORYMANAGER\_H}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ INVENTORYMANAGER\_H}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QSqlDatabase>}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00008}00008\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00009}00009\ \textcolor{comment}{\ *\ Estructura\ que\ representa\ un\ ítem\ dentro\ del\ inventario.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00010}00010\ \textcolor{comment}{\ *\ Contiene\ toda\ la\ información\ necesaria\ para\ leer\ o\ escribir}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00011}00011\ \textcolor{comment}{\ *\ un\ registro\ desde\ la\ base\ de\ datos.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00012}00012\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00013}\mbox{\hyperlink{structInventoryItem}{00013}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00014}\mbox{\hyperlink{structInventoryItem_a030669fac72a2963767b7467a9f44cfd}{00014}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structInventoryItem_a030669fac72a2963767b7467a9f44cfd}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Identificador\ único\ del\ ítem\ (PRIMARY\ KEY)}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00015}\mbox{\hyperlink{structInventoryItem_a5916800dfd9336df31f19d3d058b23ba}{00015}}\ \ \ \ \ QString\ \mbox{\hyperlink{structInventoryItem_a5916800dfd9336df31f19d3d058b23ba}{nombre}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nombre\ del\ componente\ o\ elemento}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00016}\mbox{\hyperlink{structInventoryItem_aa0e612da64e4d8f3b289a068ceb42396}{00016}}\ \ \ \ \ QString\ \mbox{\hyperlink{structInventoryItem_aa0e612da64e4d8f3b289a068ceb42396}{tipo}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tipo\ o\ categoría\ del\ ítem}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00017}\mbox{\hyperlink{structInventoryItem_aa5c6621f69f9a7bbee8e75525313f1af}{00017}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structInventoryItem_aa5c6621f69f9a7bbee8e75525313f1af}{cantidad}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cantidad\ disponible\ en\ inventario}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00018}\mbox{\hyperlink{structInventoryItem_a4f0cd1d04922dbc7f0d14221a6e6e527}{00018}}\ \ \ \ \ QString\ \mbox{\hyperlink{structInventoryItem_a4f0cd1d04922dbc7f0d14221a6e6e527}{ubicacion}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ubicación\ física\ dentro\ del\ almacén}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00019}\mbox{\hyperlink{structInventoryItem_a4a7beeb3691327c8211a60a6ff38970c}{00019}}\ \ \ \ \ QString\ \mbox{\hyperlink{structInventoryItem_a4a7beeb3691327c8211a60a6ff38970c}{fechaAdquisicion}};\ \ \ \textcolor{comment}{//\ Fecha\ en\ que\ se\ adquirió\ el\ ítem}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00020}00020\ \};}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00022}00022\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00023}00023\ \textcolor{comment}{\ *\ Clase\ InventoryManager}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00024}00024\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00025}00025\ \textcolor{comment}{\ *\ Administra\ la\ comunicación\ entre\ la\ aplicación\ y\ la\ base\ de\ datos\ SQLite.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00026}00026\ \textcolor{comment}{\ *\ Permite\ crear\ la\ tabla,\ agregar,\ editar,\ eliminar\ y\ consultar\ ítems.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00027}00027\ \textcolor{comment}{\ *\ Se\ utiliza\ como\ capa\ intermedia\ entre\ la\ lógica\ del\ programa\ y\ el\ motor\ SQL.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00028}00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00029}\mbox{\hyperlink{classInventoryManager}{00029}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classInventoryManager}{InventoryManager}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00031}00031\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00033}00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00034}00034\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00035}00035\ \textcolor{comment}{\ \ \ \ \ *\ Constructor\ del\ administrador\ de\ inventario.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00036}00036\ \textcolor{comment}{\ \ \ \ \ *\ Recibe\ una\ referencia\ a\ la\ base\ de\ datos\ ya\ inicializada.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00037}00037\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classInventoryManager}{InventoryManager}}(QSqlDatabase\ database,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00042}00042\ \textcolor{comment}{\ \ \ \ \ *\ Crea\ la\ tabla\ del\ inventario\ si\ no\ existe.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00043}00043\ \textcolor{comment}{\ \ \ \ \ *\ Retorna\ true\ si\ la\ operación\ es\ exitosa.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00044}00044\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_ac1308250ed0c8c11edc6b6b84bc8d5a2}{createTable}}();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00047}00047\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00048}00048\ \textcolor{comment}{\ \ \ \ \ *\ Inserta\ un\ nuevo\ item\ en\ la\ base\ de\ datos.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00049}00049\ \textcolor{comment}{\ \ \ \ \ *\ Los\ parámetros\ corresponden\ a\ cada\ columna\ de\ la\ tabla.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00050}00050\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_acb286cf95731b5a8f8b55bea861b6885}{addItem}}(\textcolor{keyword}{const}\ QString\ \&nombre,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&tipo,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cantidad,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&ubicacion,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&fechaAdquisicion);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00057}00057\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ *\ Actualiza\ únicamente\ la\ cantidad\ de\ un\ ítem\ según\ su\ ID.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_a80c514d80a67db181261ba49a3f95556}{updateQuantity}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ newQuantity);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00062}00062\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ *\ Elimina\ un\ ítem\ del\ inventario\ por\ ID.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_a2466a14f063a0a33ee43fb44396821fa}{removeItem}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00067}00067\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ *\ Obtiene\ todos\ los\ ítems\ de\ la\ tabla\ en\ forma\ de\ lista.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00070}00070\ \ \ \ \ QList<InventoryItem>\ \mbox{\hyperlink{classInventoryManager_aea0e4299cec1881036f2176c23323b74}{getAllItems}}();}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00072}00072\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ *\ Actualiza\ un\ ítem\ completo\ según\ su\ ID.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInventoryManager_ac9a100ac0e1fbbfd270a750b420bb88f}{updateItem}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&nombre,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&tipo,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cantidad,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&ubicacion,}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&fechaAdquisicion);}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00082}00082\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \ *\ Devuelve\ un\ solo\ ítem\ según\ su\ ID.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ *\ Si\ no\ existe,\ retorna\ un\ struct\ vacío.}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00085}00085\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ \mbox{\hyperlink{classInventoryManager_a9d7c6193009d6b10a2063d8ae5bfabaa}{getItemById}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00088}00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00089}\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{00089}}\ \ \ \ \ QSqlDatabase\ \mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}};\ \ \ \ \textcolor{comment}{//\ Conexión\ activa\ a\ la\ base\ de\ datos\ SQLite}}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00090}00090\ \};}
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{InventoryManager_8h_source_l00092}00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INVENTORYMANAGER\_H}}
+
+\end{DoxyCode}

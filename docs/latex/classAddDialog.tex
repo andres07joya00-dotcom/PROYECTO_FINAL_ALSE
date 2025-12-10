@@ -1,0 +1,499 @@
+\doxysection{Add\+Dialog Class Reference}
+\hypertarget{classAddDialog}{}\label{classAddDialog}\index{AddDialog@{AddDialog}}
+
+
+Diálogo modal para la creación y edición de componentes.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+
+
+Inheritance diagram for Add\+Dialog\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classAddDialog__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Add\+Dialog\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classAddDialog__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAddDialog_a98fd2634696182392e30d750fec4fa35}{accepted}} ()
+\item 
+void \mbox{\hyperlink{classAddDialog_a5120327b094f97585324f46bf09a1224}{cancelled}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAddDialog_a4751c7ced2d3c0497b03a97018c25630}{Add\+Dialog}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{classAddDialog}{Add\+Dialog}. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classAddDialog_ab1cf40e875c67ed9f4afbb9c15002fd9}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre ingresado por el usuario. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classAddDialog_a681938827598fc3404fea3175825ec04}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el tipo de componente ingresado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAddDialog_ace328ac19c27ec775541e29b893faeb6}{get\+Quantity}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la cantidad seleccionada. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classAddDialog_acddb648cd31785710468adfd345dc9bf}{get\+Location}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la ubicación física del componente. \end{DoxyCompactList}\item 
+QDate \mbox{\hyperlink{classAddDialog_ab6038c606013470cf474c272357d2830}{get\+Date}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la fecha de adquisición seleccionada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAddDialog_a78803d57593ddd157af57178901297ff}{on\+Ok}} ()
+\begin{DoxyCompactList}\small\item\em Slot llamado al presionar "{}\+Agregar/\+Aceptar"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAddDialog_a3f35887c64e8de108ef4e45850d560a9}{on\+Cancel}} ()
+\begin{DoxyCompactList}\small\item\em Slot llamado al presionar "{}\+Cancelar"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QLine\+Edit \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6}{name\+Edit}}
+\item 
+QLine\+Edit \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2}{type\+Edit}}
+\item 
+QSpin\+Box \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}{qty\+Spin}}
+\item 
+QLine\+Edit \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classAddDialog_acf1b846bd14c26151442d4d1f55e856c}{loc\+Edit}}
+\item 
+QDate\+Edit \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289}{date\+Edit}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Diálogo modal para la creación y edición de componentes. 
+
+Esta clase hereda de QWidget (usado como ventana) y proporciona un formulario con validaciones básicas para ingresar Nombre, Tipo, Cantidad, Ubicación y Fecha. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00028}{28}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAddDialog_a4751c7ced2d3c0497b03a97018c25630}\label{classAddDialog_a4751c7ced2d3c0497b03a97018c25630} 
+\index{AddDialog@{AddDialog}!AddDialog@{AddDialog}}
+\index{AddDialog@{AddDialog}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{AddDialog()}{AddDialog()}}
+{\footnotesize\ttfamily Add\+Dialog\+::\+Add\+Dialog (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor de la clase \doxylink{classAddDialog}{Add\+Dialog}. 
+
+Configura el layout vertical, inicializa los widgets de entrada (QLine\+Edit, QSpin\+Box, etc.) y conecta los botones de Aceptar/\+Cancelar a sus respectivos slots.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Widget padre (opcional), por defecto es nullptr. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ QWidget(parent)}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ setWindowTitle(\textcolor{stringliteral}{"{}Agregar\ componente"{}});}
+\DoxyCodeLine{00079\ \ \ \ \ QVBoxLayout\ *v\ =\ \textcolor{keyword}{new}\ QVBoxLayout(\textcolor{keyword}{this});}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ Campos\ de\ entrada}}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6}{nameEdit}}\ =\ \textcolor{keyword}{new}\ QLineEdit();\ \mbox{\hyperlink{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6}{nameEdit}}-\/>setPlaceholderText(\textcolor{stringliteral}{"{}Nombre"{}});}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2}{typeEdit}}\ =\ \textcolor{keyword}{new}\ QLineEdit();\ \mbox{\hyperlink{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2}{typeEdit}}-\/>setPlaceholderText(\textcolor{stringliteral}{"{}Tipo"{}});}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}{qtySpin}}\ =\ \textcolor{keyword}{new}\ QSpinBox();\ \mbox{\hyperlink{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}{qtySpin}}-\/>setRange(0,\ 1000000);\ \mbox{\hyperlink{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}{qtySpin}}-\/>setValue(1);}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classAddDialog_acf1b846bd14c26151442d4d1f55e856c}{locEdit}}\ =\ \textcolor{keyword}{new}\ QLineEdit();\ \mbox{\hyperlink{classAddDialog_acf1b846bd14c26151442d4d1f55e856c}{locEdit}}-\/>setPlaceholderText(\textcolor{stringliteral}{"{}Ubicación"{}});}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289}{dateEdit}}\ =\ \textcolor{keyword}{new}\ QDateEdit(QDate::currentDate());\ \mbox{\hyperlink{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289}{dateEdit}}-\/>setCalendarPopup(\textcolor{keyword}{true});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ QPushButton\ *btnOk\ =\ \textcolor{keyword}{new}\ QPushButton(\textcolor{stringliteral}{"{}Agregar"{}});}
+\DoxyCodeLine{00089\ \ \ \ \ QPushButton\ *btnCancel\ =\ \textcolor{keyword}{new}\ QPushButton(\textcolor{stringliteral}{"{}Cancelar"{}});}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ Construcción\ del\ formulario}}
+\DoxyCodeLine{00092\ \ \ \ \ v-\/>addWidget(\textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}Nombre:"{}}));\ \ \ \ v-\/>addWidget(\mbox{\hyperlink{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6}{nameEdit}});}
+\DoxyCodeLine{00093\ \ \ \ \ v-\/>addWidget(\textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}Tipo:"{}}));\ \ \ \ \ \ v-\/>addWidget(\mbox{\hyperlink{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2}{typeEdit}});}
+\DoxyCodeLine{00094\ \ \ \ \ v-\/>addWidget(\textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}Cantidad:"{}}));\ \ v-\/>addWidget(\mbox{\hyperlink{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}{qtySpin}});}
+\DoxyCodeLine{00095\ \ \ \ \ v-\/>addWidget(\textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}Ubicación:"{}}));\ v-\/>addWidget(\mbox{\hyperlink{classAddDialog_acf1b846bd14c26151442d4d1f55e856c}{locEdit}});}
+\DoxyCodeLine{00096\ \ \ \ \ v-\/>addWidget(\textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}Fecha\ adquisición:"{}}));\ v-\/>addWidget(\mbox{\hyperlink{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289}{dateEdit}});}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Botonera}}
+\DoxyCodeLine{00099\ \ \ \ \ QHBoxLayout\ *h\ =\ \textcolor{keyword}{new}\ QHBoxLayout();}
+\DoxyCodeLine{00100\ \ \ \ \ h-\/>addWidget(btnOk);}
+\DoxyCodeLine{00101\ \ \ \ \ h-\/>addWidget(btnCancel);}
+\DoxyCodeLine{00102\ \ \ \ \ v-\/>addLayout(h);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ Conexiones\ de\ señales}}
+\DoxyCodeLine{00105\ \ \ \ \ connect(btnOk,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classAddDialog_a78803d57593ddd157af57178901297ff}{AddDialog::onOk}});}
+\DoxyCodeLine{00106\ \ \ \ \ connect(btnCancel,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classAddDialog_a3f35887c64e8de108ef4e45850d560a9}{AddDialog::onCancel}});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ Asignación\ de\ nombres\ de\ objeto\ para\ búsqueda\ dinámica\ (findChild)}}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6}{nameEdit}}-\/>setObjectName(\textcolor{stringliteral}{"{}nameEdit"{}});}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2}{typeEdit}}-\/>setObjectName(\textcolor{stringliteral}{"{}typeEdit"{}});}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}{qtySpin}}-\/>setObjectName(\textcolor{stringliteral}{"{}qtySpin"{}});}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classAddDialog_acf1b846bd14c26151442d4d1f55e856c}{locEdit}}-\/>setObjectName(\textcolor{stringliteral}{"{}locEdit"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289}{dateEdit}}-\/>setObjectName(\textcolor{stringliteral}{"{}dateEdit"{}});}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mainwindow_8h_source_l00054}{date\+Edit}}, \mbox{\hyperlink{mainwindow_8h_source_l00053}{loc\+Edit}}, \mbox{\hyperlink{mainwindow_8h_source_l00050}{name\+Edit}}, \mbox{\hyperlink{mainwindow_8cpp_source_l00156}{on\+Cancel()}}, \mbox{\hyperlink{mainwindow_8cpp_source_l00150}{on\+Ok()}}, \mbox{\hyperlink{mainwindow_8h_source_l00052}{qty\+Spin}}, and \mbox{\hyperlink{mainwindow_8h_source_l00051}{type\+Edit}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_a4751c7ced2d3c0497b03a97018c25630_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAddDialog_a98fd2634696182392e30d750fec4fa35}\label{classAddDialog_a98fd2634696182392e30d750fec4fa35} 
+\index{AddDialog@{AddDialog}!accepted@{accepted}}
+\index{accepted@{accepted}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{accepted}{accepted}}
+{\footnotesize\ttfamily void Add\+Dialog\+::accepted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_a98fd2634696182392e30d750fec4fa35_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_a5120327b094f97585324f46bf09a1224}\label{classAddDialog_a5120327b094f97585324f46bf09a1224} 
+\index{AddDialog@{AddDialog}!cancelled@{cancelled}}
+\index{cancelled@{cancelled}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{cancelled}{cancelled}}
+{\footnotesize\ttfamily void Add\+Dialog\+::cancelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_a5120327b094f97585324f46bf09a1224_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_ab6038c606013470cf474c272357d2830}\label{classAddDialog_ab6038c606013470cf474c272357d2830} 
+\index{AddDialog@{AddDialog}!getDate@{getDate}}
+\index{getDate@{getDate}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily QDate Add\+Dialog\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene la fecha de adquisición seleccionada. 
+
+\begin{DoxyReturn}{Returns}
+Objeto QDate con la fecha. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00144}{144}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289}{dateEdit}}-\/>date();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mainwindow_8h_source_l00054}{date\+Edit}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_ab6038c606013470cf474c272357d2830_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_acddb648cd31785710468adfd345dc9bf}\label{classAddDialog_acddb648cd31785710468adfd345dc9bf} 
+\index{AddDialog@{AddDialog}!getLocation@{getLocation}}
+\index{getLocation@{getLocation}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{getLocation()}{getLocation()}}
+{\footnotesize\ttfamily QString Add\+Dialog\+::get\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene la ubicación física del componente. 
+
+\begin{DoxyReturn}{Returns}
+QString con la ubicación. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classAddDialog_acf1b846bd14c26151442d4d1f55e856c}{locEdit}}-\/>text().trimmed();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mainwindow_8h_source_l00053}{loc\+Edit}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_acddb648cd31785710468adfd345dc9bf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_ab1cf40e875c67ed9f4afbb9c15002fd9}\label{classAddDialog_ab1cf40e875c67ed9f4afbb9c15002fd9} 
+\index{AddDialog@{AddDialog}!getName@{getName}}
+\index{getName@{getName}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily QString Add\+Dialog\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene el nombre ingresado por el usuario. 
+
+\begin{DoxyReturn}{Returns}
+QString con el texto limpio de espacios al inicio y final (trimmed). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00120\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6}{nameEdit}}-\/>text().trimmed();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mainwindow_8h_source_l00050}{name\+Edit}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_ab1cf40e875c67ed9f4afbb9c15002fd9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_ace328ac19c27ec775541e29b893faeb6}\label{classAddDialog_ace328ac19c27ec775541e29b893faeb6} 
+\index{AddDialog@{AddDialog}!getQuantity@{getQuantity}}
+\index{getQuantity@{getQuantity}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{getQuantity()}{getQuantity()}}
+{\footnotesize\ttfamily int Add\+Dialog\+::get\+Quantity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene la cantidad seleccionada. 
+
+\begin{DoxyReturn}{Returns}
+Entero con el valor del QSpin\+Box. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00132\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}{qtySpin}}-\/>value();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mainwindow_8h_source_l00052}{qty\+Spin}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_ace328ac19c27ec775541e29b893faeb6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_a681938827598fc3404fea3175825ec04}\label{classAddDialog_a681938827598fc3404fea3175825ec04} 
+\index{AddDialog@{AddDialog}!getType@{getType}}
+\index{getType@{getType}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily QString Add\+Dialog\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene el tipo de componente ingresado. 
+
+\begin{DoxyReturn}{Returns}
+QString con el tipo (trimmed). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00126}{126}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2}{typeEdit}}-\/>text().trimmed();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{mainwindow_8h_source_l00051}{type\+Edit}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_a681938827598fc3404fea3175825ec04_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_a3f35887c64e8de108ef4e45850d560a9}\label{classAddDialog_a3f35887c64e8de108ef4e45850d560a9} 
+\index{AddDialog@{AddDialog}!onCancel@{onCancel}}
+\index{onCancel@{onCancel}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{onCancel}{onCancel}}
+{\footnotesize\ttfamily void Add\+Dialog\+::on\+Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot llamado al presionar "{}\+Cancelar"{}. 
+
+Emite la señal {\itshape \doxylink{classAddDialog_a5120327b094f97585324f46bf09a1224}{cancelled()}} para cerrar el diálogo sin cambios. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \{\ emit\ \mbox{\hyperlink{classAddDialog_a5120327b094f97585324f46bf09a1224}{cancelled}}();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classAddDialog_a5120327b094f97585324f46bf09a1224}{cancelled()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_a3f35887c64e8de108ef4e45850d560a9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAddDialog_a3f35887c64e8de108ef4e45850d560a9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classAddDialog_a78803d57593ddd157af57178901297ff}\label{classAddDialog_a78803d57593ddd157af57178901297ff} 
+\index{AddDialog@{AddDialog}!onOk@{onOk}}
+\index{onOk@{onOk}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{onOk}{onOk}}
+{\footnotesize\ttfamily void Add\+Dialog\+::on\+Ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Slot llamado al presionar "{}\+Agregar/\+Aceptar"{}. 
+
+Emite la señal {\itshape \doxylink{classAddDialog_a98fd2634696182392e30d750fec4fa35}{accepted()}} para notificar a la ventana principal. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \{\ emit\ \mbox{\hyperlink{classAddDialog_a98fd2634696182392e30d750fec4fa35}{accepted}}();\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{classAddDialog_a98fd2634696182392e30d750fec4fa35}{accepted()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{classAddDialog_a78803d57593ddd157af57178901297ff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{classAddDialog_a78803d57593ddd157af57178901297ff_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289}\label{classAddDialog_a940ef9fc28928b5f120ea4daea0b7289} 
+\index{AddDialog@{AddDialog}!dateEdit@{dateEdit}}
+\index{dateEdit@{dateEdit}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{dateEdit}{dateEdit}}
+{\footnotesize\ttfamily QDate\+Edit\texorpdfstring{$\ast$}{*} Add\+Dialog\+::date\+Edit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00054}{54}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+\Hypertarget{classAddDialog_acf1b846bd14c26151442d4d1f55e856c}\label{classAddDialog_acf1b846bd14c26151442d4d1f55e856c} 
+\index{AddDialog@{AddDialog}!locEdit@{locEdit}}
+\index{locEdit@{locEdit}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{locEdit}{locEdit}}
+{\footnotesize\ttfamily QLine\+Edit\texorpdfstring{$\ast$}{*} Add\+Dialog\+::loc\+Edit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00053}{53}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+\Hypertarget{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6}\label{classAddDialog_adbdbfc9df51c33246ce65235bb0db5c6} 
+\index{AddDialog@{AddDialog}!nameEdit@{nameEdit}}
+\index{nameEdit@{nameEdit}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{nameEdit}{nameEdit}}
+{\footnotesize\ttfamily QLine\+Edit\texorpdfstring{$\ast$}{*} Add\+Dialog\+::name\+Edit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00050}{50}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+\Hypertarget{classAddDialog_a6be89f3caf65e80a60c499c9eb719819}\label{classAddDialog_a6be89f3caf65e80a60c499c9eb719819} 
+\index{AddDialog@{AddDialog}!qtySpin@{qtySpin}}
+\index{qtySpin@{qtySpin}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{qtySpin}{qtySpin}}
+{\footnotesize\ttfamily QSpin\+Box\texorpdfstring{$\ast$}{*} Add\+Dialog\+::qty\+Spin\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00052}{52}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+\Hypertarget{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2}\label{classAddDialog_a02318b4cccc58400c43bd90bcdd6b0a2} 
+\index{AddDialog@{AddDialog}!typeEdit@{typeEdit}}
+\index{typeEdit@{typeEdit}!AddDialog@{AddDialog}}
+\doxysubsubsection{\texorpdfstring{typeEdit}{typeEdit}}
+{\footnotesize\ttfamily QLine\+Edit\texorpdfstring{$\ast$}{*} Add\+Dialog\+::type\+Edit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00051}{51}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+src/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

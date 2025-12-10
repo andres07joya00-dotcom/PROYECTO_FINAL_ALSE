@@ -1,0 +1,31 @@
+\doxysection{Database\+Manager.\+cpp}
+\hypertarget{DatabaseManager_8cpp_source}{}\label{DatabaseManager_8cpp_source}\index{src/DatabaseManager.cpp@{src/DatabaseManager.cpp}}
+\mbox{\hyperlink{DatabaseManager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{DatabaseManager_8h}{DatabaseManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QSqlError>}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00011}00011\ QSqlDatabase\ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{DatabaseManager::db}}\ =\ QSqlDatabase();}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00027}\mbox{\hyperlink{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}{00027}}\ QSqlDatabase\ \mbox{\hyperlink{classDatabaseManager_a4c1124bbf21d49013912fedac7407ce8}{DatabaseManager::getDatabase}}()}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ Si\ la\ instancia\ aún\ no\ es\ válida,\ configurar\ el\ driver}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.isValid())\ \{}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}\ =\ QSqlDatabase::addDatabase(\textcolor{stringliteral}{"{}QSQLITE"{}});}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.setDatabaseName(\textcolor{stringliteral}{"{}inventario.db"{}});}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ Abrir\ la\ base\ de\ datos\ si\ aún\ no\ está\ abierta}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.isOpen())\ \{}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.open())\ \{}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}ERROR\ al\ abrir\ la\ base\ de\ datos:"{}}\ <<\ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}}.lastError();}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Base\ de\ datos\ abierta\ correctamente."{}};}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classDatabaseManager_a48728975c70722593bb73736d7e76efb}{db}};}
+\DoxyCodeLine{\Hypertarget{DatabaseManager_8cpp_source_l00045}00045\ \}}
+
+\end{DoxyCode}

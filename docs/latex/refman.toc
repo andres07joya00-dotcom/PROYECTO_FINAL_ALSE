@@ -1,0 +1,150 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Add\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dialog Class Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Constructor \& Destructor Documentation}{9}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}AddDialog()}{9}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\numberline {4.1.3}Member Function Documentation}{10}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}accepted}{10}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}cancelled}{11}{subsubsection.4.1.3.2}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}getDate()}{11}{subsubsection.4.1.3.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.4}getLocation()}{12}{subsubsection.4.1.3.4}%
+\contentsline {subsubsection}{\numberline {4.1.3.5}getName()}{12}{subsubsection.4.1.3.5}%
+\contentsline {subsubsection}{\numberline {4.1.3.6}getQuantity()}{13}{subsubsection.4.1.3.6}%
+\contentsline {subsubsection}{\numberline {4.1.3.7}getType()}{13}{subsubsection.4.1.3.7}%
+\contentsline {subsubsection}{\numberline {4.1.3.8}onCancel}{14}{subsubsection.4.1.3.8}%
+\contentsline {subsubsection}{\numberline {4.1.3.9}onOk}{14}{subsubsection.4.1.3.9}%
+\contentsline {subsection}{\numberline {4.1.4}Member Data Documentation}{15}{subsection.4.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.4.1}dateEdit}{15}{subsubsection.4.1.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.4.2}locEdit}{15}{subsubsection.4.1.4.2}%
+\contentsline {subsubsection}{\numberline {4.1.4.3}nameEdit}{15}{subsubsection.4.1.4.3}%
+\contentsline {subsubsection}{\numberline {4.1.4.4}qtySpin}{15}{subsubsection.4.1.4.4}%
+\contentsline {subsubsection}{\numberline {4.1.4.5}typeEdit}{16}{subsubsection.4.1.4.5}%
+\contentsline {section}{\numberline {4.2}Component Class Reference}{16}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{18}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Constructor \& Destructor Documentation}{18}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}Component()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{18}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}Component()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{18}{subsubsection.4.2.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Member Function Documentation}{19}{subsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}getId()}{19}{subsubsection.4.2.3.1}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}getLocation()}{19}{subsubsection.4.2.3.2}%
+\contentsline {subsubsection}{\numberline {4.2.3.3}getName()}{19}{subsubsection.4.2.3.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.4}getPurchaseDate()}{20}{subsubsection.4.2.3.4}%
+\contentsline {subsubsection}{\numberline {4.2.3.5}getQuantity()}{20}{subsubsection.4.2.3.5}%
+\contentsline {subsubsection}{\numberline {4.2.3.6}getType()}{20}{subsubsection.4.2.3.6}%
+\contentsline {subsubsection}{\numberline {4.2.3.7}setId()}{20}{subsubsection.4.2.3.7}%
+\contentsline {subsubsection}{\numberline {4.2.3.8}setLocation()}{21}{subsubsection.4.2.3.8}%
+\contentsline {subsubsection}{\numberline {4.2.3.9}setName()}{21}{subsubsection.4.2.3.9}%
+\contentsline {subsubsection}{\numberline {4.2.3.10}setPurchaseDate()}{21}{subsubsection.4.2.3.10}%
+\contentsline {subsubsection}{\numberline {4.2.3.11}setQuantity()}{22}{subsubsection.4.2.3.11}%
+\contentsline {subsubsection}{\numberline {4.2.3.12}setType()}{22}{subsubsection.4.2.3.12}%
+\contentsline {subsection}{\numberline {4.2.4}Member Data Documentation}{22}{subsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.4.1}m\_id}{22}{subsubsection.4.2.4.1}%
+\contentsline {subsubsection}{\numberline {4.2.4.2}m\_location}{23}{subsubsection.4.2.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.4.3}m\_name}{23}{subsubsection.4.2.4.3}%
+\contentsline {subsubsection}{\numberline {4.2.4.4}m\_purchase\_date}{23}{subsubsection.4.2.4.4}%
+\contentsline {subsubsection}{\numberline {4.2.4.5}m\_quantity}{23}{subsubsection.4.2.4.5}%
+\contentsline {subsubsection}{\numberline {4.2.4.6}m\_type}{23}{subsubsection.4.2.4.6}%
+\contentsline {section}{\numberline {4.3}CSVReport Class Reference}{24}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{24}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Constructor \& Destructor Documentation}{24}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}CSVReport()}{24}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Member Function Documentation}{25}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}generate()}{25}{subsubsection.4.3.3.1}%
+\contentsline {section}{\numberline {4.4}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{26}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{27}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Member Function Documentation}{27}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}getDatabase()}{27}{subsubsection.4.4.2.1}%
+\contentsline {subsection}{\numberline {4.4.3}Member Data Documentation}{28}{subsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}db}{28}{subsubsection.4.4.3.1}%
+\contentsline {section}{\numberline {4.5}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item Struct Reference}{29}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{29}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Member Data Documentation}{29}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}cantidad}{29}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}fechaAdquisicion}{30}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}id}{30}{subsubsection.4.5.2.3}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}nombre}{30}{subsubsection.4.5.2.4}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}tipo}{30}{subsubsection.4.5.2.5}%
+\contentsline {subsubsection}{\numberline {4.5.2.6}ubicacion}{30}{subsubsection.4.5.2.6}%
+\contentsline {section}{\numberline {4.6}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{31}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{33}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Constructor \& Destructor Documentation}{33}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}InventoryManager()}{33}{subsubsection.4.6.2.1}%
+\contentsline {subsection}{\numberline {4.6.3}Member Function Documentation}{33}{subsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}addItem()}{33}{subsubsection.4.6.3.1}%
+\contentsline {subsubsection}{\numberline {4.6.3.2}createTable()}{34}{subsubsection.4.6.3.2}%
+\contentsline {subsubsection}{\numberline {4.6.3.3}getAllItems()}{35}{subsubsection.4.6.3.3}%
+\contentsline {subsubsection}{\numberline {4.6.3.4}getItemById()}{36}{subsubsection.4.6.3.4}%
+\contentsline {subsubsection}{\numberline {4.6.3.5}removeItem()}{37}{subsubsection.4.6.3.5}%
+\contentsline {subsubsection}{\numberline {4.6.3.6}updateItem()}{37}{subsubsection.4.6.3.6}%
+\contentsline {subsubsection}{\numberline {4.6.3.7}updateQuantity()}{38}{subsubsection.4.6.3.7}%
+\contentsline {subsection}{\numberline {4.6.4}Member Data Documentation}{39}{subsection.4.6.4}%
+\contentsline {subsubsection}{\numberline {4.6.4.1}db}{39}{subsubsection.4.6.4.1}%
+\contentsline {section}{\numberline {4.7}Low\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Stock\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Delegate Class Reference}{39}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{40}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Constructor \& Destructor Documentation}{40}{subsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.2.1}LowStockDelegate()}{40}{subsubsection.4.7.2.1}%
+\contentsline {subsection}{\numberline {4.7.3}Member Function Documentation}{41}{subsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.3.1}paint()}{41}{subsubsection.4.7.3.1}%
+\contentsline {subsection}{\numberline {4.7.4}Member Data Documentation}{41}{subsection.4.7.4}%
+\contentsline {subsubsection}{\numberline {4.7.4.1}limit}{41}{subsubsection.4.7.4.1}%
+\contentsline {section}{\numberline {4.8}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{42}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{44}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Constructor \& Destructor Documentation}{44}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}MainWindow()}{44}{subsubsection.4.8.2.1}%
+\contentsline {subsection}{\numberline {4.8.3}Member Function Documentation}{46}{subsection.4.8.3}%
+\contentsline {subsubsection}{\numberline {4.8.3.1}checkLowStockOnStart()}{46}{subsubsection.4.8.3.1}%
+\contentsline {subsubsection}{\numberline {4.8.3.2}onAdd}{46}{subsubsection.4.8.3.2}%
+\contentsline {subsubsection}{\numberline {4.8.3.3}onDelete}{48}{subsubsection.4.8.3.3}%
+\contentsline {subsubsection}{\numberline {4.8.3.4}onEdit}{49}{subsubsection.4.8.3.4}%
+\contentsline {subsubsection}{\numberline {4.8.3.5}onExport}{51}{subsubsection.4.8.3.5}%
+\contentsline {subsubsection}{\numberline {4.8.3.6}onLoadDefaults()}{52}{subsubsection.4.8.3.6}%
+\contentsline {subsubsection}{\numberline {4.8.3.7}onLowStock}{53}{subsubsection.4.8.3.7}%
+\contentsline {subsubsection}{\numberline {4.8.3.8}onRestoreDefaults()}{54}{subsubsection.4.8.3.8}%
+\contentsline {subsubsection}{\numberline {4.8.3.9}onSearch}{55}{subsubsection.4.8.3.9}%
+\contentsline {subsubsection}{\numberline {4.8.3.10}refreshModel()}{55}{subsubsection.4.8.3.10}%
+\contentsline {subsection}{\numberline {4.8.4}Member Data Documentation}{56}{subsection.4.8.4}%
+\contentsline {subsubsection}{\numberline {4.8.4.1}lowStockThreshold}{56}{subsubsection.4.8.4.1}%
+\contentsline {subsubsection}{\numberline {4.8.4.2}manager}{56}{subsubsection.4.8.4.2}%
+\contentsline {subsubsection}{\numberline {4.8.4.3}model}{56}{subsubsection.4.8.4.3}%
+\contentsline {subsubsection}{\numberline {4.8.4.4}proxy}{56}{subsubsection.4.8.4.4}%
+\contentsline {subsubsection}{\numberline {4.8.4.5}searchEdit}{57}{subsubsection.4.8.4.5}%
+\contentsline {subsubsection}{\numberline {4.8.4.6}tableView}{57}{subsubsection.4.8.4.6}%
+\contentsline {chapter}{\numberline {5}File Documentation}{59}{chapter.5}%
+\contentsline {section}{\numberline {5.1}include/component.h File Reference}{59}{section.5.1}%
+\contentsline {section}{\numberline {5.2}component.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{60}{section.5.2}%
+\contentsline {section}{\numberline {5.3}include/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.h File Reference}{61}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{61}{section.5.4}%
+\contentsline {section}{\numberline {5.5}include/delegate.h File Reference}{62}{section.5.5}%
+\contentsline {section}{\numberline {5.6}delegate.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{62}{section.5.6}%
+\contentsline {section}{\numberline {5.7}include/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.h File Reference}{63}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{64}{section.5.8}%
+\contentsline {section}{\numberline {5.9}include/mainwindow.h File Reference}{65}{section.5.9}%
+\contentsline {section}{\numberline {5.10}mainwindow.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{66}{section.5.10}%
+\contentsline {section}{\numberline {5.11}include/report.h File Reference}{67}{section.5.11}%
+\contentsline {section}{\numberline {5.12}report.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{68}{section.5.12}%
+\contentsline {section}{\numberline {5.13}src/component.cpp File Reference}{69}{section.5.13}%
+\contentsline {section}{\numberline {5.14}component.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{69}{section.5.14}%
+\contentsline {section}{\numberline {5.15}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.cpp File Reference}{70}{section.5.15}%
+\contentsline {section}{\numberline {5.16}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{70}{section.5.16}%
+\contentsline {section}{\numberline {5.17}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.cpp File Reference}{71}{section.5.17}%
+\contentsline {section}{\numberline {5.18}Inventory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{71}{section.5.18}%
+\contentsline {section}{\numberline {5.19}src/main.cpp File Reference}{73}{section.5.19}%
+\contentsline {subsection}{\numberline {5.19.1}Detailed Description}{73}{subsection.5.19.1}%
+\contentsline {subsection}{\numberline {5.19.2}Function Documentation}{73}{subsection.5.19.2}%
+\contentsline {subsubsection}{\numberline {5.19.2.1}main()}{73}{subsubsection.5.19.2.1}%
+\contentsline {section}{\numberline {5.20}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{74}{section.5.20}%
+\contentsline {section}{\numberline {5.21}src/mainwindow.cpp File Reference}{75}{section.5.21}%
+\contentsline {subsection}{\numberline {5.21.1}Detailed Description}{75}{subsection.5.21.1}%
+\contentsline {subsection}{\numberline {5.21.2}Function Documentation}{76}{subsection.5.21.2}%
+\contentsline {subsubsection}{\numberline {5.21.2.1}dateToString()}{76}{subsubsection.5.21.2.1}%
+\contentsline {subsubsection}{\numberline {5.21.2.2}inventoryItemToComponent()}{76}{subsubsection.5.21.2.2}%
+\contentsline {section}{\numberline {5.22}mainwindow.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{77}{section.5.22}%
+\contentsline {section}{\numberline {5.23}src/report.cpp File Reference}{82}{section.5.23}%
+\contentsline {section}{\numberline {5.24}report.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{82}{section.5.24}%

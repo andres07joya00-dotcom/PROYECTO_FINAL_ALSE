@@ -1,0 +1,131 @@
+\doxysection{src/mainwindow.cpp File Reference}
+\hypertarget{mainwindow_8cpp}{}\label{mainwindow_8cpp}\index{src/mainwindow.cpp@{src/mainwindow.cpp}}
+
+
+Implementación de la lógica de interfaz gráfica para la gestión de inventario.  
+
+
+{\ttfamily \#include "{}mainwindow.\+h"{}}\newline
+{\ttfamily \#include $<$QVBox\+Layout$>$}\newline
+{\ttfamily \#include $<$QHBox\+Layout$>$}\newline
+{\ttfamily \#include $<$QLabel$>$}\newline
+{\ttfamily \#include $<$QLine\+Edit$>$}\newline
+{\ttfamily \#include $<$QSpin\+Box$>$}\newline
+{\ttfamily \#include $<$QCombo\+Box$>$}\newline
+{\ttfamily \#include $<$QDate\+Edit$>$}\newline
+{\ttfamily \#include $<$QPush\+Button$>$}\newline
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \#include $<$QFile\+Dialog$>$}\newline
+{\ttfamily \#include $<$QSql\+Query$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include "{}report.\+h"{}}\newline
+{\ttfamily \#include "{}delegate.\+h"{}}\newline
+Include dependency graph for mainwindow.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mainwindow_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static QString \mbox{\hyperlink{mainwindow_8cpp_a62c004692be56c8a628ec733b07c4c40}{date\+To\+String}} (const QDate \&d)
+\begin{DoxyCompactList}\small\item\em Convierte un objeto QDate a una cadena con formato estándar de base de datos. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classComponent}{Component}} \mbox{\hyperlink{mainwindow_8cpp_a030d291ff0a754dbd1fc3cfdbec10847}{inventory\+Item\+To\+Component}} (const \mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} \&it)
+\begin{DoxyCompactList}\small\item\em Adaptador que convierte una estructura de base de datos (\doxylink{structInventoryItem}{Inventory\+Item}) a un objeto de lógica (\doxylink{classComponent}{Component}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementación de la lógica de interfaz gráfica para la gestión de inventario. 
+
+\begin{DoxyAuthor}{Author}
+\mbox{[}Tu Nombre o Equipo de Desarrollo\mbox{]} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2024
+\end{DoxyDate}
+Este archivo contiene la implementación de las clases\+:
+\begin{DoxyItemize}
+\item Add\+Dialog\+: Ventana modal para formularios de entrada.
+\item Main\+Window\+: Ventana principal que orquesta la vista, el modelo SQL y la lógica de negocio.
+\end{DoxyItemize}
+
+Se utilizan componentes de Qt como QSql\+Table\+Model, QSort\+Filter\+Proxy\+Model y delegates personalizados para manejar la presentación de datos. 
+
+Definition in file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{mainwindow_8cpp_a62c004692be56c8a628ec733b07c4c40}\label{mainwindow_8cpp_a62c004692be56c8a628ec733b07c4c40} 
+\index{mainwindow.cpp@{mainwindow.cpp}!dateToString@{dateToString}}
+\index{dateToString@{dateToString}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{dateToString()}{dateToString()}}
+{\footnotesize\ttfamily static QString date\+To\+String (\begin{DoxyParamCaption}\item[{const QDate \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convierte un objeto QDate a una cadena con formato estándar de base de datos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Fecha a convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QString con formato "{}\+YYYY-\/\+MM-\/\+DD"{}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ d.toString(\textcolor{stringliteral}{"{}yyyy-\/MM-\/dd"{}});}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mainwindow_8cpp_a62c004692be56c8a628ec733b07c4c40_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{mainwindow_8cpp_a030d291ff0a754dbd1fc3cfdbec10847}\label{mainwindow_8cpp_a030d291ff0a754dbd1fc3cfdbec10847} 
+\index{mainwindow.cpp@{mainwindow.cpp}!inventoryItemToComponent@{inventoryItemToComponent}}
+\index{inventoryItemToComponent@{inventoryItemToComponent}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{inventoryItemToComponent()}{inventoryItemToComponent()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classComponent}{Component}} inventory\+Item\+To\+Component (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} \&}]{it }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adaptador que convierte una estructura de base de datos (\doxylink{structInventoryItem}{Inventory\+Item}) a un objeto de lógica (\doxylink{classComponent}{Component}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em it} & Objeto \doxylink{structInventoryItem}{Inventory\+Item} recuperado del \doxylink{classInventoryManager}{Inventory\+Manager}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Objeto \doxylink{classComponent}{Component} listo para ser procesado por la lógica de negocio. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classComponent}{Component}}(it.\mbox{\hyperlink{structInventoryItem_a030669fac72a2963767b7467a9f44cfd}{id}},\ it.\mbox{\hyperlink{structInventoryItem_a5916800dfd9336df31f19d3d058b23ba}{nombre}},\ it.\mbox{\hyperlink{structInventoryItem_aa0e612da64e4d8f3b289a068ceb42396}{tipo}},\ it.\mbox{\hyperlink{structInventoryItem_aa5c6621f69f9a7bbee8e75525313f1af}{cantidad}},\ it.\mbox{\hyperlink{structInventoryItem_a4f0cd1d04922dbc7f0d14221a6e6e527}{ubicacion}},\ it.\mbox{\hyperlink{structInventoryItem_a4a7beeb3691327c8211a60a6ff38970c}{fechaAdquisicion}});}
+\DoxyCodeLine{00053\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00017}{Inventory\+Item\+::cantidad}}, \mbox{\hyperlink{InventoryManager_8h_source_l00019}{Inventory\+Item\+::fecha\+Adquisicion}}, \mbox{\hyperlink{InventoryManager_8h_source_l00014}{Inventory\+Item\+::id}}, \mbox{\hyperlink{InventoryManager_8h_source_l00015}{Inventory\+Item\+::nombre}}, \mbox{\hyperlink{InventoryManager_8h_source_l00016}{Inventory\+Item\+::tipo}}, and \mbox{\hyperlink{InventoryManager_8h_source_l00018}{Inventory\+Item\+::ubicacion}}.
+

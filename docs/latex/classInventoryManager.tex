@@ -1,0 +1,500 @@
+\doxysection{Inventory\+Manager Class Reference}
+\hypertarget{classInventoryManager}{}\label{classInventoryManager}\index{InventoryManager@{InventoryManager}}
+
+
+{\ttfamily \#include $<$Inventory\+Manager.\+h$>$}
+
+
+
+Inheritance diagram for Inventory\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classInventoryManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Inventory\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classInventoryManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInventoryManager_a75dce25e0f16beb8fdf2b2c12e067bbc}{Inventory\+Manager}} (QSql\+Database database, QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor de \doxylink{classInventoryManager}{Inventory\+Manager}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInventoryManager_ac1308250ed0c8c11edc6b6b84bc8d5a2}{create\+Table}} ()
+\begin{DoxyCompactList}\small\item\em Crea la tabla principal del inventario si no existe. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInventoryManager_acb286cf95731b5a8f8b55bea861b6885}{add\+Item}} (const QString \&nombre, const QString \&tipo, int cantidad, const QString \&ubicacion, const QString \&fecha\+Adquisicion)
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo elemento en la tabla inventario. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInventoryManager_a80c514d80a67db181261ba49a3f95556}{update\+Quantity}} (int id, int new\+Quantity)
+\begin{DoxyCompactList}\small\item\em Actualiza únicamente la cantidad de un elemento identificado por id. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInventoryManager_a2466a14f063a0a33ee43fb44396821fa}{remove\+Item}} (int id)
+\begin{DoxyCompactList}\small\item\em Elimina un elemento del inventario. \end{DoxyCompactList}\item 
+QList$<$ \mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} $>$ \mbox{\hyperlink{classInventoryManager_aea0e4299cec1881036f2176c23323b74}{get\+All\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene todos los registros almacenados en la tabla inventario. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInventoryManager_ac9a100ac0e1fbbfd270a750b420bb88f}{update\+Item}} (int id, const QString \&nombre, const QString \&tipo, int cantidad, const QString \&ubicacion, const QString \&fecha\+Adquisicion)
+\begin{DoxyCompactList}\small\item\em Actualiza todos los campos de un elemento del inventario. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} \mbox{\hyperlink{classInventoryManager_a9d7c6193009d6b10a2063d8ae5bfabaa}{get\+Item\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Obtiene un único elemento del inventario según su id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QSql\+Database \mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8h_source_l00029}{29}} of file \mbox{\hyperlink{InventoryManager_8h_source}{Inventory\+Manager.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classInventoryManager_a75dce25e0f16beb8fdf2b2c12e067bbc}\label{classInventoryManager_a75dce25e0f16beb8fdf2b2c12e067bbc} 
+\index{InventoryManager@{InventoryManager}!InventoryManager@{InventoryManager}}
+\index{InventoryManager@{InventoryManager}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{InventoryManager()}{InventoryManager()}}
+{\footnotesize\ttfamily Inventory\+Manager\+::\+Inventory\+Manager (\begin{DoxyParamCaption}\item[{QSql\+Database}]{database,  }\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor de \doxylink{classInventoryManager}{Inventory\+Manager}. 
+
+Inicializa el gestor de inventario con la base de datos proporcionada. Se verifica que la base de datos sea válida; de no serlo, la ejecución del programa se detiene mediante q\+Fatal, ya que el inventario depende completamente del acceso a la base de datos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & Conexión a la base de datos SQLite. \\
+\hline
+{\em parent} & Objeto padre opcional según el sistema de jerarquía de Qt. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ :\ QObject(parent),\ \mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}}(database)}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}}.isValid())\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ qFatal(\textcolor{stringliteral}{"{}ERROR\ FATAL:\ Base\ de\ datos\ no\ válida.\ "{}}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Asegúrate\ de\ usar\ DatabaseManager::getDatabase()."{}});}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInventoryManager_acb286cf95731b5a8f8b55bea861b6885}\label{classInventoryManager_acb286cf95731b5a8f8b55bea861b6885} 
+\index{InventoryManager@{InventoryManager}!addItem@{addItem}}
+\index{addItem@{addItem}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
+{\footnotesize\ttfamily bool Inventory\+Manager\+::add\+Item (\begin{DoxyParamCaption}\item[{const QString \&}]{nombre,  }\item[{const QString \&}]{tipo,  }\item[{int}]{cantidad,  }\item[{const QString \&}]{ubicacion,  }\item[{const QString \&}]{fecha\+Adquisicion }\end{DoxyParamCaption})}
+
+
+
+Inserta un nuevo elemento en la tabla inventario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & Nombre del componente. \\
+\hline
+{\em tipo} & Tipo o categoría. \\
+\hline
+{\em cantidad} & Cantidad disponible. \\
+\hline
+{\em ubicacion} & Ubicación física. \\
+\hline
+{\em fecha\+Adquisicion} & Fecha de adquisición.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la operación fue exitosa, false si el INSERT falló. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ query.prepare(}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}INSERT\ INTO\ inventario\ "{}}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}(nombre,\ tipo,\ cantidad,\ ubicacion,\ fechaAdquisicion)\ "{}}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}VALUES\ (?,\ ?,\ ?,\ ?,\ ?)"{}}}
+\DoxyCodeLine{00079\ \ \ \ \ );}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ query.addBindValue(nombre);}
+\DoxyCodeLine{00082\ \ \ \ \ query.addBindValue(tipo);}
+\DoxyCodeLine{00083\ \ \ \ \ query.addBindValue(cantidad);}
+\DoxyCodeLine{00084\ \ \ \ \ query.addBindValue(ubicacion);}
+\DoxyCodeLine{00085\ \ \ \ \ query.addBindValue(fechaAdquisicion);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInventoryManager_acb286cf95731b5a8f8b55bea861b6885_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInventoryManager_ac1308250ed0c8c11edc6b6b84bc8d5a2}\label{classInventoryManager_ac1308250ed0c8c11edc6b6b84bc8d5a2} 
+\index{InventoryManager@{InventoryManager}!createTable@{createTable}}
+\index{createTable@{createTable}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{createTable()}{createTable()}}
+{\footnotesize\ttfamily bool Inventory\+Manager\+::create\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crea la tabla principal del inventario si no existe. 
+
+La tabla contiene los campos\+:
+\begin{DoxyItemize}
+\item id (PRIMARY KEY AUTOINCREMENT)
+\item nombre
+\item tipo
+\item cantidad
+\item ubicacion
+\item fecha\+Adquisicion
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+true si la tabla se creó o ya existía; false si hubo error en la ejecución. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ QString\ sql\ =}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}CREATE\ TABLE\ IF\ NOT\ EXISTS\ inventario\ ("{}}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}id\ INTEGER\ PRIMARY\ KEY\ AUTOINCREMENT,"{}}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nombre\ TEXT\ NOT\ NULL,"{}}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tipo\ TEXT\ NOT\ NULL,"{}}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}cantidad\ INTEGER\ NOT\ NULL,"{}}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ubicacion\ TEXT\ NOT\ NULL,"{}}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}fechaAdquisicion\ TEXT\ NOT\ NULL"{}}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{});"{}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec(sql);}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInventoryManager_ac1308250ed0c8c11edc6b6b84bc8d5a2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInventoryManager_aea0e4299cec1881036f2176c23323b74}\label{classInventoryManager_aea0e4299cec1881036f2176c23323b74} 
+\index{InventoryManager@{InventoryManager}!getAllItems@{getAllItems}}
+\index{getAllItems@{getAllItems}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{getAllItems()}{getAllItems()}}
+{\footnotesize\ttfamily QList$<$ \mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} $>$ Inventory\+Manager\+::get\+All\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene todos los registros almacenados en la tabla inventario. 
+
+\begin{DoxyReturn}{Returns}
+Lista con todos los \doxylink{structInventoryItem}{Inventory\+Item} encontrados. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00127}{127}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ QList<InventoryItem>\ items;}
+\DoxyCodeLine{00130\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ query.exec(\textcolor{stringliteral}{"{}SELECT\ id,\ nombre,\ tipo,\ cantidad,\ ubicacion,\ fechaAdquisicion\ FROM\ inventario"{}});}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{while}\ (query.next())\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ it;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a030669fac72a2963767b7467a9f44cfd}{id}}\ =\ query.value(0).toInt();}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a5916800dfd9336df31f19d3d058b23ba}{nombre}}\ =\ query.value(1).toString();}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa0e612da64e4d8f3b289a068ceb42396}{tipo}}\ =\ query.value(2).toString();}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa5c6621f69f9a7bbee8e75525313f1af}{cantidad}}\ =\ query.value(3).toInt();}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4f0cd1d04922dbc7f0d14221a6e6e527}{ubicacion}}\ =\ query.value(4).toString();}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4a7beeb3691327c8211a60a6ff38970c}{fechaAdquisicion}}\ =\ query.value(5).toString();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ items.append(it);}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ items;}
+\DoxyCodeLine{00145\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00017}{Inventory\+Item\+::cantidad}}, \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}, \mbox{\hyperlink{InventoryManager_8h_source_l00019}{Inventory\+Item\+::fecha\+Adquisicion}}, \mbox{\hyperlink{InventoryManager_8h_source_l00014}{Inventory\+Item\+::id}}, \mbox{\hyperlink{InventoryManager_8h_source_l00015}{Inventory\+Item\+::nombre}}, \mbox{\hyperlink{InventoryManager_8h_source_l00016}{Inventory\+Item\+::tipo}}, and \mbox{\hyperlink{InventoryManager_8h_source_l00018}{Inventory\+Item\+::ubicacion}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInventoryManager_aea0e4299cec1881036f2176c23323b74_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInventoryManager_a9d7c6193009d6b10a2063d8ae5bfabaa}\label{classInventoryManager_a9d7c6193009d6b10a2063d8ae5bfabaa} 
+\index{InventoryManager@{InventoryManager}!getItemById@{getItemById}}
+\index{getItemById@{getItemById}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{getItemById()}{getItemById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structInventoryItem}{Inventory\+Item}} Inventory\+Manager\+::get\+Item\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Obtiene un único elemento del inventario según su id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Identificador buscado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Estructura \doxylink{structInventoryItem}{Inventory\+Item} con los datos encontrados. Si no existe, retorna un objeto vacío con valores por defecto. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{structInventoryItem}{InventoryItem}}\ it;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{00197\ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}SELECT\ id,\ nombre,\ tipo,\ cantidad,\ ubicacion,\ fechaAdquisicion\ "{}}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}FROM\ inventario\ WHERE\ id\ =\ ?"{}});}
+\DoxyCodeLine{00199\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (!query.exec()\ ||\ !query.next())\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;\ \ \textcolor{comment}{//\ vacío\ si\ no\ se\ encuentra}}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a030669fac72a2963767b7467a9f44cfd}{id}}\ =\ query.value(0).toInt();}
+\DoxyCodeLine{00206\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a5916800dfd9336df31f19d3d058b23ba}{nombre}}\ =\ query.value(1).toString();}
+\DoxyCodeLine{00207\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa0e612da64e4d8f3b289a068ceb42396}{tipo}}\ =\ query.value(2).toString();}
+\DoxyCodeLine{00208\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_aa5c6621f69f9a7bbee8e75525313f1af}{cantidad}}\ =\ query.value(3).toInt();}
+\DoxyCodeLine{00209\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4f0cd1d04922dbc7f0d14221a6e6e527}{ubicacion}}\ =\ query.value(4).toString();}
+\DoxyCodeLine{00210\ \ \ \ \ it.\mbox{\hyperlink{structInventoryItem_a4a7beeb3691327c8211a60a6ff38970c}{fechaAdquisicion}}\ =\ query.value(5).toString();}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00213\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00017}{Inventory\+Item\+::cantidad}}, \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}, \mbox{\hyperlink{InventoryManager_8h_source_l00019}{Inventory\+Item\+::fecha\+Adquisicion}}, \mbox{\hyperlink{InventoryManager_8h_source_l00014}{Inventory\+Item\+::id}}, \mbox{\hyperlink{InventoryManager_8h_source_l00015}{Inventory\+Item\+::nombre}}, \mbox{\hyperlink{InventoryManager_8h_source_l00016}{Inventory\+Item\+::tipo}}, and \mbox{\hyperlink{InventoryManager_8h_source_l00018}{Inventory\+Item\+::ubicacion}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInventoryManager_a9d7c6193009d6b10a2063d8ae5bfabaa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInventoryManager_a2466a14f063a0a33ee43fb44396821fa}\label{classInventoryManager_a2466a14f063a0a33ee43fb44396821fa} 
+\index{InventoryManager@{InventoryManager}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{removeItem()}{removeItem()}}
+{\footnotesize\ttfamily bool Inventory\+Manager\+::remove\+Item (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Elimina un elemento del inventario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Identificador del elemento a borrar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el registro fue eliminado correctamente. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{00117\ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}DELETE\ FROM\ inventario\ WHERE\ id\ =\ ?"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{00120\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInventoryManager_a2466a14f063a0a33ee43fb44396821fa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInventoryManager_ac9a100ac0e1fbbfd270a750b420bb88f}\label{classInventoryManager_ac9a100ac0e1fbbfd270a750b420bb88f} 
+\index{InventoryManager@{InventoryManager}!updateItem@{updateItem}}
+\index{updateItem@{updateItem}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{updateItem()}{updateItem()}}
+{\footnotesize\ttfamily bool Inventory\+Manager\+::update\+Item (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{const QString \&}]{nombre,  }\item[{const QString \&}]{tipo,  }\item[{int}]{cantidad,  }\item[{const QString \&}]{ubicacion,  }\item[{const QString \&}]{fecha\+Adquisicion }\end{DoxyParamCaption})}
+
+
+
+Actualiza todos los campos de un elemento del inventario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Identificador del registro a actualizar. \\
+\hline
+{\em nombre} & Nuevo nombre. \\
+\hline
+{\em tipo} & Nuevo tipo. \\
+\hline
+{\em cantidad} & Nueva cantidad. \\
+\hline
+{\em ubicacion} & Nueva ubicación. \\
+\hline
+{\em fecha\+Adquisicion} & Nueva fecha de adquisición.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el registro fue modificado correctamente. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00165\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ query.prepare(}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}UPDATE\ inventario\ SET\ "{}}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nombre\ =\ ?,\ tipo\ =\ ?,\ cantidad\ =\ ?,\ ubicacion\ =\ ?,\ fechaAdquisicion\ =\ ?\ "{}}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}WHERE\ id\ =\ ?"{}}}
+\DoxyCodeLine{00172\ \ \ \ \ );}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ query.addBindValue(nombre);}
+\DoxyCodeLine{00175\ \ \ \ \ query.addBindValue(tipo);}
+\DoxyCodeLine{00176\ \ \ \ \ query.addBindValue(cantidad);}
+\DoxyCodeLine{00177\ \ \ \ \ query.addBindValue(ubicacion);}
+\DoxyCodeLine{00178\ \ \ \ \ query.addBindValue(fechaAdquisicion);}
+\DoxyCodeLine{00179\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{00182\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classInventoryManager_ac9a100ac0e1fbbfd270a750b420bb88f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classInventoryManager_a80c514d80a67db181261ba49a3f95556}\label{classInventoryManager_a80c514d80a67db181261ba49a3f95556} 
+\index{InventoryManager@{InventoryManager}!updateQuantity@{updateQuantity}}
+\index{updateQuantity@{updateQuantity}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{updateQuantity()}{updateQuantity()}}
+{\footnotesize\ttfamily bool Inventory\+Manager\+::update\+Quantity (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{new\+Quantity }\end{DoxyParamCaption})}
+
+
+
+Actualiza únicamente la cantidad de un elemento identificado por id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Identificador del registro a actualizar. \\
+\hline
+{\em new\+Quantity} & Nueva cantidad a asignar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la operación fue exitosa, false si falló. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{InventoryManager_8cpp_source}{Inventory\+Manager.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00099\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ QSqlQuery\ query(\mbox{\hyperlink{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}{db}});}
+\DoxyCodeLine{00101\ \ \ \ \ query.prepare(\textcolor{stringliteral}{"{}UPDATE\ inventario\ SET\ cantidad\ =\ ?\ WHERE\ id\ =\ ?"{}});}
+\DoxyCodeLine{00102\ \ \ \ \ query.addBindValue(newQuantity);}
+\DoxyCodeLine{00103\ \ \ \ \ query.addBindValue(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ query.exec();}
+\DoxyCodeLine{00105\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{InventoryManager_8h_source_l00089}{db}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf}\label{classInventoryManager_a4bd2b45d717275b1e6f811bad0573cbf} 
+\index{InventoryManager@{InventoryManager}!db@{db}}
+\index{db@{db}!InventoryManager@{InventoryManager}}
+\doxysubsubsection{\texorpdfstring{db}{db}}
+{\footnotesize\ttfamily QSql\+Database Inventory\+Manager\+::db\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{InventoryManager_8h_source_l00089}{89}} of file \mbox{\hyperlink{InventoryManager_8h_source}{Inventory\+Manager.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{InventoryManager_8h}{Inventory\+Manager.\+h}}\item 
+src/\mbox{\hyperlink{InventoryManager_8cpp}{Inventory\+Manager.\+cpp}}\end{DoxyCompactItemize}
