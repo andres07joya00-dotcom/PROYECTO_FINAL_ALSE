@@ -1,0 +1,19 @@
+
+
+PROJECT_NAME           = "PROYECTO_FINAL_ALSE"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = include src ui
+RECURSIVE              = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+QUIET                  = NO
+WARNINGS               = YES
+HAVE_DOT               = YES
+DOT_GRAPH_MAX_NODES    = 2048
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+CLASS_DIAGRAMS        = YES
+INCLUDE_PATH          = include
+FILE_PATTERNS         = *.h *.cpp *.ui
