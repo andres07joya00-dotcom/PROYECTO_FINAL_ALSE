@@ -1,5 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="Node000001" title="Función principal de la aplicación." alt="" coords="5,5,60,31"/>
-<area shape="rect" id="Node000002" href="$classDatabaseManager.html#a4c1124bbf21d49013912fedac7407ce8" title="Obtiene la base de datos principal del sistema." alt="" coords="108,5,340,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,15,94,15,94,21,60,21"/>
-</map>

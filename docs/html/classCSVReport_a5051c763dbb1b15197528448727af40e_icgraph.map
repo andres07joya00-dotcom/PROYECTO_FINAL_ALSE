@@ -1,7 +1,0 @@
-<map id="CSVReport::generate" name="CSVReport::generate">
-<area shape="rect" id="Node000001" title="Genera un archivo CSV con la lista de items proporcionada." alt="" coords="469,5,627,31"/>
-<area shape="rect" id="Node000002" href="$classMainWindow.html#aae43dfb8457343a5cd68ae9e4f0947b3" title="Exporta el inventario completo a un archivo CSV." alt="" coords="251,5,421,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="456,21,421,21,421,15,456,15"/>
-<area shape="rect" id="Node000003" href="$classMainWindow.html#af6ed98f8230fd8f941c6cb7732160ed5" title="Constructor principal." alt="" coords="5,5,203,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,21,203,21,203,15,237,15"/>
-</map>

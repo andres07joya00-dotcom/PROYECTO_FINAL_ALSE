@@ -1,7 +1,0 @@
-<map id="InventoryManager::getItemById" name="InventoryManager::getItemById">
-<area shape="rect" id="Node000001" title="Obtiene un único elemento del inventario según su id." alt="" coords="453,5,683,31"/>
-<area shape="rect" id="Node000002" href="$classMainWindow.html#a9480c0a26284df09cf4d595b0d1952fe" title="Edita el componente seleccionado abriendo un AddDialog precargado." alt="" coords="251,5,405,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="440,21,405,21,405,15,440,15"/>
-<area shape="rect" id="Node000003" href="$classMainWindow.html#af6ed98f8230fd8f941c6cb7732160ed5" title="Constructor principal." alt="" coords="5,5,203,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,21,203,21,203,15,237,15"/>
-</map>
